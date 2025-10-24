@@ -4,4 +4,22 @@ resource "aws_fsx_ontap_file_system" "chips_fsx" {
   deployment_type     = var.fsx_deployment_type
   throughput_capacity = var.fsx_throughput_capacity
   preferred_subnet_id = values(data.aws_subnet.storage_subnet)[0].id
+
+  tags = {
+    Name           = var.name
+    Environment    = var.environment
+    Repository     = var.repo
+    Service        = var.service
+    ServiceSubType = var.service_subtype
+    Team           = var.team
+  }
+
 }
+
+
+
+
+
+
+
+
