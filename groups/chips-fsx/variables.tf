@@ -14,16 +14,16 @@ variable "environment" {
 }
 
 variable "fsx_storage_capacity" {
-  type = string
+  type        = string
   description = "The storage capacity (GiB) of the file system"
 }
 
 variable "fsx_deployment_type" {
-  type = string
+  type        = string
   description = "The filesystem deployment type. Supports MULTI_AZ_1, MULTI_AZ_2, SINGLE_AZ_1, and SINGLE_AZ_2"
 }
 
 variable "fsx_throughput_capacity" {
-  type = string
+  type        = string
   description = " Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are 128, 256, 512, 1024, 2048, and 4096"
 }
