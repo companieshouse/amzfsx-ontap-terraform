@@ -3,9 +3,9 @@ resource "aws_security_group" "chips_fsx" {
   description = "Security group for the ${var.name}"
   vpc_id      = data.aws_vpc.heritage.id
 
-#  tags = merge(local.common_tags, {
-#    Name = "${local.common_resource_name}"
-#  })
+  #  tags = merge(local.common_tags, {
+  #    Name = "${local.common_resource_name}"
+  #  })
 }
 
 resource "aws_vpc_security_group_ingress_rule" "fsx_ssh_https" {
