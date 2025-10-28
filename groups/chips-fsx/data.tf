@@ -20,3 +20,7 @@ data "aws_vpc" "heritage" {
 data "aws_ec2_managed_prefix_list" "administration_cidr_ranges" {
   name = "administration-cidr-ranges"
 }
+
+data "vault_generic_secret" "fsx_admin_password" {
+  path = "applications/${var.aws_account}/amzfsx/chips-fsx"
+}
