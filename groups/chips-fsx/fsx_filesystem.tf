@@ -4,7 +4,8 @@ resource "aws_fsx_ontap_file_system" "chips_fsx" {
   deployment_type     = var.fsx_deployment_type
   throughput_capacity = var.fsx_throughput_capacity
   preferred_subnet_id = values(data.aws_subnet.storage_subnet)[0].id
-  fsx_admin_password  = data.vault_generic_secret.fsx_admin_password.data["fsx_admin_password"]
+  fsx_admin_password  = local.fsx_admin_password
+  security_group_ids  = [aws_security_group.chips_fsx.id]
 
   tags = {
     Name           = var.name
@@ -16,8 +17,6 @@ resource "aws_fsx_ontap_file_system" "chips_fsx" {
   }
 
 }
-
-
 
 
 
