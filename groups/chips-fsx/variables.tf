@@ -53,3 +53,21 @@ variable "fsx_throughput_capacity" {
   type        = string
   description = " Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are 128, 256, 512, 1024, 2048, and 4096"
 }
+
+variable "vpc_id" {
+  description = "VPC ID for Lambda-link function"
+  type        = string
+  default     = "vpc-072a23b32e2695955"
+}
+
+variable "subnet_ids" {
+  description = "List of subnet IDs for Lambda-link function"
+  type        = list(string)
+  default     = ["subnet-0253a321586aa3ff3"]
+}
+
+variable "security_group_ids" {
+  description = "List of security group IDs for Lambda-link function"
+  type        = list(string)
+  default     = ["sg-0dded47534e6fc2ad"]
+}
