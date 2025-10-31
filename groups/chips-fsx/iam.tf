@@ -1,19 +1,3 @@
-#resource "aws_iam_user" "chips_fsx_user" {
-#  name = "chips_fsx_user"
-#  tags = {
-#    Name           = var.name
-#    Environment    = var.environment
-#    Repository     = var.repo
-#    Service        = var.service
-#    ServiceSubType = var.service_subtype
-#    Team           = var.team
-#  }
-#}
-
-#resource "aws_iam_access_key" "chips_fsx_user" {
-#  user = aws_iam_user.chips_fsx_user.name
-#}
-
 data "aws_iam_policy_document" "chips_fsx" {
   statement {
     actions = ["fsx:*",
