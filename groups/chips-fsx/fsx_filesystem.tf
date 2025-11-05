@@ -7,14 +7,24 @@ resource "aws_fsx_ontap_file_system" "chips_fsx" {
   fsx_admin_password  = local.fsx_admin_password
   security_group_ids  = [aws_security_group.chips_fsx.id]
 
-  tags = {
-    Name           = var.name
-    Environment    = var.environment
-    Repository     = var.repo
-    Service        = var.service
-    ServiceSubType = var.service_subtype
-    Team           = var.team
-  }
+ # tags = {
+ #   Name           = var.name
+ #   Environment    = var.environment
+ #   Repository     = var.repo
+ #   Service        = var.service
+ #   ServiceSubType = var.service_subtype
+ #   Team           = var.team
+ # }
+
+ tags = merge(
+  local.default_tags,
+  tomap(
+    {
+      "Account" = var.aws_account,
+      "Environment" = var.environment
+    }
+  )
+)
 
 }
 

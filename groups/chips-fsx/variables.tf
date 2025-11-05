@@ -11,32 +11,37 @@ variable "aws_region" {
 variable "environment" {
   type        = string
   description = "The environment name to be used when provisioning AWS resources."
-}
-
-variable "name" {
-  type        = string
-  description = "The service name to be used when creating AWS resources."
+  default     = ""
 }
 
 variable "repo" {
   description = "Github Repository where code resides"
   type        = string
+  default     = ""
 }
 
 variable "service" {
   type        = string
   description = "The service name to be used when creating AWS resources."
+  default     = ""
 }
 
 variable "service_subtype" {
   type        = string
   description = "The service subtype name to be used when creating AWS resources."
+  default     = ""
 }
 
 variable "team" {
   type        = string
   description = "The team name for ownership of this service."
   default     = "Linux and Storage Support"
+}
+
+variable "fsx_fs_name" {
+  type        = string
+  description = "The service name to be used when creating AWS resources."
+  #default     = ""
 }
 
 variable "fsx_storage_capacity" {
