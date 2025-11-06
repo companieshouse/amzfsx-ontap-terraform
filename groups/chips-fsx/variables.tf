@@ -11,32 +11,37 @@ variable "aws_region" {
 variable "environment" {
   type        = string
   description = "The environment name to be used when provisioning AWS resources."
-}
-
-variable "name" {
-  type        = string
-  description = "The service name to be used when creating AWS resources."
+  #default     = ""
 }
 
 variable "repo" {
   description = "Github Repository where code resides"
   type        = string
+  default     = ""
 }
 
 variable "service" {
   type        = string
   description = "The service name to be used when creating AWS resources."
+  default     = ""
 }
 
 variable "service_subtype" {
   type        = string
   description = "The service subtype name to be used when creating AWS resources."
+  default     = ""
 }
 
 variable "team" {
   type        = string
   description = "The team name for ownership of this service."
   default     = "Linux and Storage Support"
+}
+
+variable "fsx_fs_name" {
+  type        = string
+  description = "The service name to be used when creating AWS resources."
+  #default     = ""
 }
 
 variable "fsx_storage_capacity" {
@@ -51,7 +56,13 @@ variable "fsx_deployment_type" {
 
 variable "fsx_throughput_capacity" {
   type        = string
-  description = " Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are 128, 256, 512, 1024, 2048, and 4096"
+  description = "Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are 128, 256, 512, 1024, 2048, and 4096"
+}
+
+variable "fsx_auto_backup_retention" {
+  type        = string
+  description = "The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days."
+  default     = "0"
 }
 
 variable "vpc_id" {
