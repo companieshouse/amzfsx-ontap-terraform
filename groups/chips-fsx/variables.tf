@@ -11,7 +11,7 @@ variable "aws_region" {
 variable "environment" {
   type        = string
   description = "The environment name to be used when provisioning AWS resources."
-  default     = ""
+  #default     = ""
 }
 
 variable "repo" {
@@ -56,7 +56,13 @@ variable "fsx_deployment_type" {
 
 variable "fsx_throughput_capacity" {
   type        = string
-  description = " Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are 128, 256, 512, 1024, 2048, and 4096"
+  description = "Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are 128, 256, 512, 1024, 2048, and 4096"
+}
+
+variable "fsx_auto_backup_retention" {
+  type        = string
+  description = "The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days."
+  default     = "0"
 }
 
 variable "vpc_id" {

@@ -6,11 +6,11 @@ locals {
 
   default_tags = {
     # Tags
-    Name            = local.common_resource_name
-    Repository      = "amzfsx-ontap-terraform"
-    Service         = "CHIPS"
-    ServiceSubType  = "FSx"
-    Team            = "Linux and Storage Support"
+    Name           = local.common_resource_name
+    Repository     = "amzfsx-ontap-terraform"
+    Service        = "CHIPS"
+    ServiceSubType = "FSx"
+    Team           = "Linux and Storage Support"
   }
 
 }
