@@ -56,7 +56,7 @@ resource "aws_lambda_function" "lambda_function" {
 
   role = aws_iam_role.lambda_role.arn
   vpc_config {
-    security_group_ids = var.security_group_ids
+    security_group_ids = [aws_security_group.fsx_lambda_link.id]
     subnet_ids         = var.subnet_ids
   }
 
