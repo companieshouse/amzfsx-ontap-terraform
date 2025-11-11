@@ -34,7 +34,8 @@ resource "aws_iam_role_policy" "LambdaPolicy" {
 
 
 resource "aws_iam_role" "lambda_role" {
-  name = "FSX-LambdaLinkRole-lambda-BMvc46f"
+  #  name = "FSX-LambdaLinkRole-lambda-BMvc46f"
+  name = local.common_role_resource_name
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -50,7 +51,8 @@ resource "aws_iam_role" "lambda_role" {
 }
 
 resource "aws_lambda_function" "lambda_function" {
-  function_name = "FSX-lambda-BMvc46f"
+  #function_name = "FSX-lambda-BMvc46f"
+  function_name = local.common_resource_name
   image_uri     = "052582346341.dkr.ecr.${var.aws_region}.amazonaws.com/fsx_link:production"
 
   role = aws_iam_role.lambda_role.arn

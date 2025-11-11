@@ -1,0 +1,7 @@
+# Account details
+aws_account = "heritage-development-eu-west-2"
+aws_region  = "eu-west-2"
+environment = "development"
+
+# Lambda Link
+lambda_link_name = "FSx-Lambda"
