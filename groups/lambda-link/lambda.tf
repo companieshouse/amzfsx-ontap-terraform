@@ -32,7 +32,6 @@ resource "aws_iam_role_policy" "LambdaPolicy" {
   })
 }
 
-
 resource "aws_iam_role" "lambda_role" {
   #  name = "FSX-LambdaLinkRole-lambda-BMvc46f"
   name = local.common_role_resource_name
