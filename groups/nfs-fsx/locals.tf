@@ -12,5 +12,4 @@ locals {
     ServiceSubType = "FSx"
     Team           = "Linux and Storage Support"
   }
-
 }

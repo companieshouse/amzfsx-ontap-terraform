@@ -65,20 +65,31 @@ variable "fsx_auto_backup_retention" {
   default     = "0"
 }
 
-variable "vpc_id" {
-  description = "VPC ID for Lambda-link function"
-  type        = string
-  default     = "vpc-072a23b32e2695955"
+variable "nfs_ports" {
+  type        = list(any)
+  description = "A list of ports and protocols used for NFS client access"
+  default = [
+    { "protocol" = "tcp", "port" = 111 },
+    { "protocol" = "udp", "port" = 111 },
+    { "protocol" = "tcp", "port" = 635 },
+    { "protocol" = "udp", "port" = 635 },    
+    { "protocol" = "tcp", "port" = 2049 },
+    { "protocol" = "udp", "port" = 2049 },
+    { "protocol" = "tcp", "port" = 4045, "to_port" = 4046 },
+    { "protocol" = "udp", "port" = 4045, "to_port" = 4046 },
+    { "protocol" = "udp", "port" = 4049 }
+  ]
 }
 
-variable "subnet_ids" {
-  description = "List of subnet IDs for Lambda-link function"
-  type        = list(string)
-  default     = ["subnet-0253a321586aa3ff3"]
-}
-
-variable "security_group_ids" {
-  description = "List of security group IDs for Lambda-link function"
-  type        = list(string)
-  default     = ["sg-0dded47534e6fc2ad"]
+variable "cifs_ports" {
+  type        = list(any)
+  description = "A list of ports and protocols used for CIFS client access"
+  default = [
+    { "protocol" = "tcp", "port" = 135 },
+    { "protocol" = "udp", "port" = 135 },
+    { "protocol" = "tcp", "port" = 139 },
+    { "protocol" = "udp", "port" = 139 },
+    { "protocol" = "tcp", "port" = 445 },
+    { "protocol" = "udp", "port" = 137 }
+  ]
 }
