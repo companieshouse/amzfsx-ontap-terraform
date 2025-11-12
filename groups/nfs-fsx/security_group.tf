@@ -36,15 +36,26 @@ resource "aws_vpc_security_group_ingress_rule" "fsx_https" {
   to_port           = 443
 }
 
-resource "aws_vpc_security_group_ingress_rule" "fsx_nfs_cifs" {
-  count             = length(data.aws_subnets.storage_subnets.ids)
-  description       = "Allow ISCSI connectivity for ${var.fsx_fs_name}"
+resource "aws_vpc_security_group_ingress_rule" "fsx_nfs" {
+  count             = length(local.nfs_ingress_cidrs)
   security_group_id = aws_security_group.nfs_fsx.id
-  ip_protocol       = "tcp"
-  cidr_ipv4         = values(data.aws_subnet.storage_subnet)[count.index].cidr_block
-  from_port         = 3260
-  to_port           = 3260
+  description       = "Allow clients to access CVO via NFS"
+  from_port         = local.nfs_ingress_cidrs[count.index][1]["port"]
+  to_port           = lookup(local.nfs_ingress_cidrs[count.index][1], "to_port", local.nfs_ingress_cidrs[count.index][1]["port"])
+  ip_protocol       = local.nfs_ingress_cidrs[count.index][1]["protocol"]
+  cidr_ipv4         = local.nfs_ingress_cidrs[count.index][0]
 }
+
+resource "aws_vpc_security_group_ingress_rule" "fsx_cifs" {
+  for_each          = { for rule in var.cifs_ports : join("_", [rule.protocol, rule.port]) => rule if length(data.aws_ec2_managed_prefix_list.administration_cidr_ranges) > 0 }
+  security_group_id = aws_security_group.nfs_fsx.id
+  description       = "Allow clients to access via CIFS"
+  ip_protocol       = each.value.protocol
+  prefix_list_id    = data.aws_ec2_managed_prefix_list.administration_cidr_ranges.id
+  from_port         = each.value.port
+  to_port           = lookup(each.value, "to_port", each.value.port)
+}
+
 
 ### Egress Rules
 

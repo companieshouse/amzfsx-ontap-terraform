@@ -17,19 +17,19 @@ variable "environment" {
 variable "repo" {
   description = "Github Repository where code resides"
   type        = string
-  default     = ""
+  default     = "amzfsx-ontap-terraform"
 }
 
 variable "service" {
   type        = string
   description = "The service name to be used when creating AWS resources."
-  default     = ""
+  default     = "NFS"
 }
 
 variable "service_subtype" {
   type        = string
   description = "The service subtype name to be used when creating AWS resources."
-  default     = ""
+  default     = "FSx"
 }
 
 variable "team" {
@@ -41,7 +41,7 @@ variable "team" {
 variable "fsx_fs_name" {
   type        = string
   description = "The service name to be used when creating AWS resources."
-  default     = ""
+  #default     = ""
 }
 
 variable "fsx_storage_capacity" {
