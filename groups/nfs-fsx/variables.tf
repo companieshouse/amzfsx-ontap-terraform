@@ -17,19 +17,19 @@ variable "environment" {
 variable "repo" {
   description = "Github Repository where code resides"
   type        = string
-  default     = ""
+  default     = "amzfsx-ontap-terraform"
 }
 
 variable "service" {
   type        = string
   description = "The service name to be used when creating AWS resources."
-  default     = ""
+  default     = "NFS"
 }
 
 variable "service_subtype" {
   type        = string
   description = "The service subtype name to be used when creating AWS resources."
-  default     = ""
+  default     = "FSx"
 }
 
 variable "team" {
@@ -41,7 +41,7 @@ variable "team" {
 variable "fsx_fs_name" {
   type        = string
   description = "The service name to be used when creating AWS resources."
-  default     = ""
+  #default     = ""
 }
 
 variable "fsx_storage_capacity" {
@@ -65,20 +65,25 @@ variable "fsx_auto_backup_retention" {
   default     = "0"
 }
 
-variable "vpc_id" {
-  description = "VPC ID for Lambda-link function"
-  type        = string
-  default     = "vpc-072a23b32e2695955"
+variable "nfs_ports" {
+  type        = list(any)
+  description = "A list of ports and protocols used for NFS client access"
+  default = [
+    { "protocol" = "-1", "port" = 111 },
+    { "protocol" = "-1", "port" = 635 },
+    { "protocol" = "-1", "port" = 2049 },
+    { "protocol" = "-1", "port" = 4045, "to_port" = 4046 },
+    { "protocol" = "udp", "port" = 4049 }
+  ]
 }
 
-variable "subnet_ids" {
-  description = "List of subnet IDs for Lambda-link function"
-  type        = list(string)
-  default     = ["subnet-0253a321586aa3ff3"]
-}
-
-variable "security_group_ids" {
-  description = "List of security group IDs for Lambda-link function"
-  type        = list(string)
-  default     = ["sg-0dded47534e6fc2ad"]
+variable "cifs_ports" {
+  type        = list(any)
+  description = "A list of ports and protocols used for CIFS client access"
+  default = [
+    { "protocol" = "-1", "port" = 135 },
+    { "protocol" = "-1", "port" = 139 },
+    { "protocol" = "tcp", "port" = 445 },
+    { "protocol" = "udp", "port" = 137 }
+  ]
 }
