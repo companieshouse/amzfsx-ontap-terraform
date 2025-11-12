@@ -7,13 +7,13 @@ resource "aws_security_group" "nfs_fsx" {
 }
 
 resource "aws_security_group" "nfs_fsx_cifs" {
-  name        = local.common_resource_name
+  name        = "FSx CIFS"
   description = "CIFS Security group for the ${var.fsx_fs_name}"
   vpc_id      = data.aws_vpc.heritage.id
 }
 
 resource "aws_security_group" "nfs_fsx_nfs" {
-  name        = local.common_resource_name
+  name        = "FSx NFS"
   description = "NFS Security group for the ${var.fsx_fs_name}"
   vpc_id      = data.aws_vpc.heritage.id
 }
