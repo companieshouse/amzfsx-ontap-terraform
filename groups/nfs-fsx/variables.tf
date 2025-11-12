@@ -69,10 +69,14 @@ variable "nfs_ports" {
   type        = list(any)
   description = "A list of ports and protocols used for NFS client access"
   default = [
-    { "protocol" = "-1", "port" = 111 },
-    { "protocol" = "-1", "port" = 635 },
-    { "protocol" = "-1", "port" = 2049 },
-    { "protocol" = "-1", "port" = 4045, "to_port" = 4046 },
+    { "protocol" = "tcp", "port" = 111 },
+    { "protocol" = "udp", "port" = 111 },
+    { "protocol" = "tcp", "port" = 635 },
+    { "protocol" = "udp", "port" = 635 },    
+    { "protocol" = "tcp", "port" = 2049 },
+    { "protocol" = "udp", "port" = 2049 },
+    { "protocol" = "tcp", "port" = 4045, "to_port" = 4046 },
+    { "protocol" = "udp", "port" = 4045, "to_port" = 4046 },
     { "protocol" = "udp", "port" = 4049 }
   ]
 }
@@ -81,8 +85,10 @@ variable "cifs_ports" {
   type        = list(any)
   description = "A list of ports and protocols used for CIFS client access"
   default = [
-    { "protocol" = "-1", "port" = 135 },
-    { "protocol" = "-1", "port" = 139 },
+    { "protocol" = "tcp", "port" = 135 },
+    { "protocol" = "udp", "port" = 135 },
+    { "protocol" = "tcp", "port" = 139 },
+    { "protocol" = "udp", "port" = 139 },
     { "protocol" = "tcp", "port" = 445 },
     { "protocol" = "udp", "port" = 137 }
   ]
