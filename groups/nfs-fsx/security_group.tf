@@ -6,6 +6,18 @@ resource "aws_security_group" "nfs_fsx" {
   vpc_id      = data.aws_vpc.heritage.id
 }
 
+resource "aws_security_group" "nfs_fsx_cifs" {
+  name        = local.common_resource_name
+  description = "CIFS Security group for the ${var.fsx_fs_name}"
+  vpc_id      = data.aws_vpc.heritage.id
+}
+
+resource "aws_security_group" "nfs_fsx_nfs" {
+  name        = local.common_resource_name
+  description = "NFS Security group for the ${var.fsx_fs_name}"
+  vpc_id      = data.aws_vpc.heritage.id
+}
+
 resource "aws_vpc_security_group_ingress_rule" "fsx_ssh_https" {
   description       = "Allow SSH and HTTPS connectivity for ${var.fsx_fs_name}"
   security_group_id = aws_security_group.nfs_fsx.id
@@ -36,19 +48,19 @@ resource "aws_vpc_security_group_ingress_rule" "fsx_https" {
   to_port           = 443
 }
 
-#resource "aws_vpc_security_group_ingress_rule" "fsx_nfs" {
-#  count             = length(local.nfs_ingress_cidrs)
-#  security_group_id = aws_security_group.nfs_fsx.id
-#  description       = "Allow clients to access CVO via NFS"
-#  from_port         = local.nfs_ingress_cidrs[count.index][1]["port"]
-#  to_port           = lookup(local.nfs_ingress_cidrs[count.index][1], "to_port", local.nfs_ingress_cidrs[count.index][1]["port"])
-#  ip_protocol       = local.nfs_ingress_cidrs[count.index][1]["protocol"]
-#  cidr_ipv4         = local.nfs_ingress_cidrs[count.index][0]
-#}
+resource "aws_vpc_security_group_ingress_rule" "fsx_nfs" {
+  count             = length(local.nfs_ingress_cidrs)
+  security_group_id = aws_security_group.nfs_fsx_nfs.id
+  description       = "Allow clients to access CVO via NFS"
+  from_port         = local.nfs_ingress_cidrs[count.index][1]["port"]
+  to_port           = lookup(local.nfs_ingress_cidrs[count.index][1], "to_port", local.nfs_ingress_cidrs[count.index][1]["port"])
+  ip_protocol       = local.nfs_ingress_cidrs[count.index][1]["protocol"]
+  cidr_ipv4         = local.nfs_ingress_cidrs[count.index][0]
+}
 
 resource "aws_vpc_security_group_ingress_rule" "fsx_cifs" {
   for_each          = { for rule in var.cifs_ports : join("_", [rule.protocol, rule.port]) => rule if length(data.aws_ec2_managed_prefix_list.administration_cidr_ranges) > 0 }
-  security_group_id = aws_security_group.nfs_fsx.id
+  security_group_id = aws_security_group.nfs_fsx_cifs.id
   description       = "Allow clients to access via CIFS"
   ip_protocol       = each.value.protocol
   prefix_list_id    = data.aws_ec2_managed_prefix_list.administration_cidr_ranges.id
