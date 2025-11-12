@@ -5,7 +5,7 @@ resource "aws_fsx_ontap_file_system" "nfs_fsx" {
   throughput_capacity             = var.fsx_throughput_capacity
   preferred_subnet_id             = values(data.aws_subnet.storage_subnet)[0].id
   fsx_admin_password              = local.fsx_admin_password
-  security_group_ids              = [aws_security_group.nfs_fsx.id]
+  security_group_ids              = [aws_security_group.nfs_fsx.id,aws_security_group.nfs_fsx_nfs.id,aws_security_group.nfs_fsx_cifs.id]
   automatic_backup_retention_days = var.fsx_auto_backup_retention
 
   tags = merge(
