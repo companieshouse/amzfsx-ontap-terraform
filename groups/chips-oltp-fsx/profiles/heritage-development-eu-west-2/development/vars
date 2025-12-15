@@ -7,5 +7,8 @@ environment = "development"
 fsx_fs_name             = "CHIPS_FSx"
 fsx_storage_capacity    = "1024"
 fsx_deployment_type     = "SINGLE_AZ_1"
-fsx_throughput_capacity = "512"
-fsx_auto_backup_retention = "14"
+fsx_throughput_capacity = "128"
+fsx_auto_backup_retention = "7"
+
+# DNS
+fsx_dns_name = "chips-oltp.heritage.development.aws.internal"

@@ -4,6 +4,8 @@ locals {
   netapp_account_id     = data.vault_generic_secret.netapp_account_id.data["account-id"]
   netapp_fsx_account_id = data.vault_generic_secret.netapp_fsx_account_id.data["account-id"]
 
+  internal_fqdn = format("%s.%s.aws.internal", split("-", var.aws_account)[1], split("-", var.aws_account)[0])
+
   default_tags = {
     # Tags
     Name           = local.common_resource_name

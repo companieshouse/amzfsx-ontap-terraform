@@ -81,3 +81,15 @@ variable "security_group_ids" {
   type        = list(string)
   default     = ["sg-0dded47534e6fc2ad"]
 }
+
+variable "fsx_dns_name" {
+  type        = string
+  description = "The dns name for the nfs vip"
+  default     = false
+}
+
+variable "fsx_dns_record" {
+  type        = string
+  description = "The dns record used for the cvo nfs vip dns"
+  default     = false
+}
