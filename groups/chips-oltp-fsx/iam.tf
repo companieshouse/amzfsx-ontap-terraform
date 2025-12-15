@@ -38,6 +38,7 @@ data "aws_iam_policy_document" "chips_oltp_fsx" {
       "bedrock:ListInferenceProfiles",
       "bedrock:GetInferenceProfile"
     ]
+    resources = ["*"]
   }
 
   statement {
@@ -62,6 +63,7 @@ data "aws_iam_policy_document" "chips_oltp_fsx" {
       "kms:ListKeys",
       "kms:ListAliases"
     ]
+    resources = ["*"]
   }
 
   statement {
