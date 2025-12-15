@@ -11,4 +11,4 @@ fsx_throughput_capacity = "256"
 fsx_auto_backup_retention = "7"
 
 # DNS
-fsx_dns_name = "chips-oltp-fsx"
+fsx_fs_mgmt_dns_name = "chips-oltp-fsx-mgmt"

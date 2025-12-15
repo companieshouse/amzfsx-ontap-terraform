@@ -82,14 +82,14 @@ variable "security_group_ids" {
   default     = ["sg-0dded47534e6fc2ad"]
 }
 
-variable "fsx_dns_name" {
+variable "fsx_fs_mgmt_dns_name" {
   type        = string
-  description = "The dns name for the nfs vip"
+  description = "The dns name for the FSx filesystem management address"
   default     = false
 }
 
-variable "fsx_dns_record" {
+variable "fsx_fs_mgmt_dns_record" {
   type        = string
-  description = "The dns record used for the cvo nfs vip dns"
+  description = "The dns record used for the FSx filesystem mamnagement address"
   default     = false
 }
