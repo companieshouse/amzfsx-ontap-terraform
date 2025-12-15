@@ -1,4 +1,4 @@
-resource "aws_fsx_ontap_file_system" "chips_oltp__fsx" {
+resource "aws_fsx_ontap_file_system" "chips_oltp_fsx" {
   storage_capacity                = var.fsx_storage_capacity
   subnet_ids                      = can(regex("MULTI", var.fsx_deployment_type)) ? [values(data.aws_subnet.storage_subnet)[0].id, values(data.aws_subnet.storage_subnet)[1].id] : [values(data.aws_subnet.storage_subnet)[0].id]
   deployment_type                 = var.fsx_deployment_type

@@ -17,6 +17,11 @@ data "aws_vpc" "heritage" {
   }
 }
 
+data "aws_route53_zone" "private_zone" {
+  name         = local.internal_fqdn
+  private_zone = true
+}
+
 data "aws_ec2_managed_prefix_list" "administration_cidr_ranges" {
   name = "administration-cidr-ranges"
 }
