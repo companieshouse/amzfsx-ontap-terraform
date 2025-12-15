@@ -40,7 +40,6 @@ variable "team" {
 variable "fsx_fs_name" {
   type        = string
   description = "The service name to be used when creating AWS resources."
-  #default     = ""
 }
 
 variable "fsx_storage_capacity" {
@@ -67,19 +66,16 @@ variable "fsx_auto_backup_retention" {
 variable "vpc_id" {
   description = "VPC ID for Lambda-link function"
   type        = string
-  default     = "vpc-072a23b32e2695955"
 }
 
 variable "subnet_ids" {
   description = "List of subnet IDs for Lambda-link function"
   type        = list(string)
-  default     = ["subnet-0253a321586aa3ff3"]
 }
 
 variable "security_group_ids" {
   description = "List of security group IDs for Lambda-link function"
   type        = list(string)
-  default     = ["sg-0dded47534e6fc2ad"]
 }
 
 variable "fsx_fs_mgmt_dns_name" {
