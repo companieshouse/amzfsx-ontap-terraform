@@ -11,4 +11,4 @@ fsx_throughput_capacity = "256"
 fsx_auto_backup_retention = "7"
 
 # DNS
-fsx_dns_name = "chips-oltp.heritage-staging.aws.internal"
+fsx_dns_name = "chips-oltp"
