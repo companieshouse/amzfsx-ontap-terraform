@@ -57,7 +57,7 @@ resource "aws_lambda_function" "lambda_function" {
   role = aws_iam_role.lambda_role.arn
   vpc_config {
     security_group_ids = [aws_security_group.fsx_lambda_link.id]
-    subnet_ids         = var.subnet_ids
+    subnet_ids         = [values(data.aws_subnet.storage_subnet)[0].id, values(data.aws_subnet.storage_subnet)[1].id, values(data.aws_subnet.storage_subnet)[2].id]
   }
 
   package_type = "Image"
