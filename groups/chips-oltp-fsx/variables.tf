@@ -71,11 +71,13 @@ variable "vpc_id" {
 variable "subnet_ids" {
   description = "List of subnet IDs for Lambda-link function"
   type        = list(string)
+  default     = []
 }
 
 variable "security_group_ids" {
   description = "List of security group IDs for Lambda-link function"
   type        = list(string)
+  default     = []
 }
 
 variable "fsx_fs_mgmt_dns_name" {
