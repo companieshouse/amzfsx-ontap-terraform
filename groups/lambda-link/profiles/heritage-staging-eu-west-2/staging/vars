@@ -3,3 +3,6 @@
 aws_account = "heritage-staging-eu-west-2"
 aws_region  = "eu-west-2"
 environment = "staging"
+
+# Lambda Link
+lambda_link_name = "FSx-Lambda"
