@@ -10,7 +10,7 @@ locals {
     # Tags
     Name           = local.common_resource_name
     Repository     = "amzfsx-ontap-terraform"
-    Service        = "CHIPS-OLTP"
+    Service        = "CHIP-OLTP"
     ServiceSubType = "FSx"
     Team           = "Linux and Storage Support"
   }
