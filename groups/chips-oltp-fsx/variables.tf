@@ -92,3 +92,21 @@ variable "fsx_fs_mgmt_dns_record" {
   description = "The dns record used for the FSx filesystem mamnagement address"
   default     = false
 }
+
+variable "chips_oltp_data_size" {
+  type = string
+  description = "Volume Size in Mb"
+  default = "1"
+}
+
+variable "chips_oltp_fra_size" {
+  type = string
+  description = "Volume Size in Mb"
+  default = "1"
+}
+
+variable "chips_oltp_redo_size" {
+  type = string
+  description = "Volume Size in Mb"
+  default = "1"
+}
