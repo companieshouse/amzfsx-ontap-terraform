@@ -66,6 +66,7 @@ variable "fsx_auto_backup_retention" {
 variable "vpc_id" {
   description = "VPC ID for Lambda-link function"
   type        = string
+  default     = null
 }
 
 variable "subnet_ids" {
