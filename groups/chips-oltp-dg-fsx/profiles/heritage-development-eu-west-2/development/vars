@@ -1,0 +1,19 @@
+# Account details
+aws_account = "heritage-development-eu-west-2"
+aws_region  = "eu-west-2"
+environment = "development"
+
+#FSX config
+fsx_fs_name             = "CHIPS_OLTP_DG_FSx"
+fsx_storage_capacity    = "1024"
+fsx_deployment_type     = "SINGLE_AZ_1"
+fsx_throughput_capacity = "128"
+fsx_auto_backup_retention = "7"
+
+#FSX Volume Sizes
+chips_oltp_dg_data_size = 20
+chips_oltp_dg_fra_size  = 20
+chips_oltp_dg_redo_size = 20
+
+# DNS
+fsx_fs_mgmt_dns_name = "chips-oltp-dg-fsx-mgmt"

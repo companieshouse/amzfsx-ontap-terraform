@@ -1,0 +1,19 @@
+# Account details
+aws_account = "heritage-staging-eu-west-2"
+aws_region  = "eu-west-2"
+environment = "staging"
+
+#FSX config
+fsx_fs_name             = "CHIPS_OLTP_DG_FSx"
+fsx_storage_capacity    = "30720"
+fsx_deployment_type     = "SINGLE_AZ_1"
+fsx_throughput_capacity = "256"
+fsx_auto_backup_retention = "7"
+
+#FSX Volume Sizes
+chips_oltp_dg_data_size = 4200000
+chips_oltp_dg_fra_size  = 520000
+chips_oltp_dg_redo_size = 110000
+
+# DNS
+fsx_fs_mgmt_dns_name = "chips-oltp-dg-fsx-mgmt"
