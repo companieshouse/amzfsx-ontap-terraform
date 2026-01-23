@@ -13,5 +13,8 @@ fsx_auto_backup_retention = "7"
 #FSX Volume Sizes
 snapshot_data_size = 2000
 
+#FSX Volume Counts
+snapshot_data_count = 1
+
 # DNS
 fsx_fs_mgmt_dns_name = "snapshot-fsx-mgmt"
