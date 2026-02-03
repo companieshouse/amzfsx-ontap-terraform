@@ -110,3 +110,21 @@ variable "chips_oltp_redo_size" {
   description = "Volume Size in Mb"
   default = "1"
 }
+
+variable "chips_oltp_data_count" {
+  type        = string
+  description = "Volume Count"
+  default     = "0"
+}
+
+variable "chips_oltp_fra_count" {
+  type        = string
+  description = "Volume Count"
+  default     = "0"
+}
+
+variable "chips_oltp_redo_count" {
+  type        = string
+  description = "Volume Count"
+  default     = "0"
+}
