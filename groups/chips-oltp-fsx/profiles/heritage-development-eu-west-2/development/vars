@@ -15,5 +15,11 @@ chips_oltp_data_size = 20
 chips_oltp_fra_size  = 20
 chips_oltp_redo_size = 20
 
+
+#FSX Volume Counts
+chips_oltp_data_count = 6
+chips_oltp_fra_count  = 4
+chips_oltp_redo_count = 3
+
 # DNS
 fsx_fs_mgmt_dns_name = "chips-oltp-fsx-mgmt"
