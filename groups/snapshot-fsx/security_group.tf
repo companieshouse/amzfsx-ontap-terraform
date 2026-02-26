@@ -56,16 +56,6 @@ resource "aws_vpc_security_group_ingress_rule" "fsx_snap_cluster" {
   to_port           = 11105
 }
 
-#resource "aws_vpc_security_group_ingress_rule" "fsx_iscsi" {
-#  count             = length(data.aws_subnets.storage_subnets.ids)
-#  description       = "Allow ISCSI connectivity for ${var.fsx_fs_name}"
-#  security_group_id = aws_security_group.snapshot_fsx.id
-#  ip_protocol       = "tcp"
-#  cidr_ipv4         = values(data.aws_subnet.storage_subnet)[count.index].cidr_block
-#  from_port         = 3260
-#  to_port           = 3260
-#}
-
 ### Egress Rules
 
 resource "aws_vpc_security_group_egress_rule" "fsx_all_out" {
