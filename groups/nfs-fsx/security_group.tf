@@ -70,7 +70,7 @@ resource "aws_vpc_security_group_ingress_rule" "fsx_cifs" {
 resource "aws_vpc_security_group_ingress_rule" "fsx_snap_ndmp" {
   count             = length(data.aws_subnets.storage_subnets.ids)
   description       = "Allow SnapMirror operations ${var.fsx_fs_name}"
-  security_group_id = aws_security_group.snapshot_fsx.id
+  security_group_id = aws_security_group.nfs_fsx.id
   ip_protocol       = "tcp"
   cidr_ipv4         = values(data.aws_subnet.storage_subnet)[count.index].cidr_block
   from_port         = 10000
@@ -80,7 +80,7 @@ resource "aws_vpc_security_group_ingress_rule" "fsx_snap_ndmp" {
 resource "aws_vpc_security_group_ingress_rule" "fsx_snap_cluster" {
   count             = length(data.aws_subnets.storage_subnets.ids)
   description       = "Allow SnapMirror operations ${var.fsx_fs_name}"
-  security_group_id = aws_security_group.snapshot_fsx.id
+  security_group_id = aws_security_group.nfs_fsx.id
   ip_protocol       = "tcp"
   cidr_ipv4         = values(data.aws_subnet.storage_subnet)[count.index].cidr_block
   from_port         = 11104
