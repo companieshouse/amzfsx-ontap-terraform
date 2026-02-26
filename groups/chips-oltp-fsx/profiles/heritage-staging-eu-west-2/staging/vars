@@ -11,9 +11,9 @@ fsx_throughput_capacity = "256"
 fsx_auto_backup_retention = "7"
 
 #FSX Volume Sizes
-chips_oltp_data_size = 4200000
-chips_oltp_fra_size  = 520000
-chips_oltp_redo_size = 110000
+chips_oltp_data_size = 4302400
+chips_oltp_fra_size  = 533312
+chips_oltp_redo_size = 113072
 
 #FSX Volume Counts
 chips_oltp_data_count = 6
