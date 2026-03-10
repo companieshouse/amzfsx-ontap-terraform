@@ -37,10 +37,22 @@ data "vault_generic_secret" "fsx_admin_password" {
   path = "applications/${var.aws_account}/amzfsx/nfs-fsx"
 }
 
+data "vault_generic_secret" "ad_password" {
+  path = "applications/${var.aws_account}/amzfsx/nfs-fsx"
+}
+
+data "vault_generic_secret" "ad_username" {
+  path = "applications/${var.aws_account}/amzfsx/nfs-fsx"
+}
+
 data "vault_generic_secret" "netapp_account_id" {
   path = "applications/shared-services-eu-west-2/netapp/account"
 }
 
 data "vault_generic_secret" "netapp_fsx_account_id" {
   path = "applications/shared-services-eu-west-2/netapp/fsx/"
+}
+
+data "vault_generic_secret" "active_directory_data" {
+  path = "applications/shared-services-eu-west-2/active-directory-v2/"
 }
