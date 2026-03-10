@@ -65,6 +65,12 @@ variable "fsx_auto_backup_retention" {
   default     = "0"
 }
 
+variable "ad_domain_name" {
+  type        = string
+  description = "Active Directory Domain Name."
+  default     = "companieshouse.local"
+}
+
 variable "nfs_ports" {
   type        = list(any)
   description = "A list of ports and protocols used for NFS client access"
