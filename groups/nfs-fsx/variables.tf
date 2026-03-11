@@ -77,6 +77,12 @@ variable "ad_domain_name" {
   default     = "companieshouse.local"
 }
 
+variable "ad_ou_dn" {
+  type = string
+  description = "Active Directory OU DN"
+  default = "OU=AD Groups,OU=CARDIFF,OU=CH,DC=CompaniesHouse,DC=local"
+}
+
 variable "nfs_ports" {
   type        = list(any)
   description = "A list of ports and protocols used for NFS client access"

@@ -9,6 +9,7 @@ resource "aws_fsx_ontap_storage_virtual_machine" "nfs_svm" {
       domain_name = local.domain_name
       password    = local.ad_password
       username    = local.ad_username
+      organizational_unit_distinguished_name = local.ou_dn
     }
   }
 
