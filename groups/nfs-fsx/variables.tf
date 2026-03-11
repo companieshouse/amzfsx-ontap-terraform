@@ -65,6 +65,12 @@ variable "fsx_auto_backup_retention" {
   default     = "0"
 }
 
+variable "fsx_fs_mgmt_dns_name" {
+  type        = string
+  description = "The dns name for the FSx filesystem management address"
+  default     = false
+}
+
 variable "ad_domain_name" {
   type        = string
   description = "Active Directory Domain Name."

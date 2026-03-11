@@ -7,6 +7,8 @@ locals {
   ad_username           = data.vault_generic_secret.ad_username.data["ad_username"]
   domain_name           = var.ad_domain_name
 
+  internal_fqdn = format("%s.%s.aws.internal", split("-", var.aws_account)[1], split("-", var.aws_account)[0])
+
   default_tags = {
     # Tags
     Name           = local.common_resource_name
