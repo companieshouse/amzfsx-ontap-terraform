@@ -6,6 +6,7 @@ locals {
   ad_password           = data.vault_generic_secret.ad_password.data["ad_password"]
   ad_username           = data.vault_generic_secret.ad_username.data["ad_username"]
   domain_name           = var.ad_domain_name
+  ou_dn                 = var.ad_ou_dn
 
   internal_fqdn = format("%s.%s.aws.internal", split("-", var.aws_account)[1], split("-", var.aws_account)[0])
 
