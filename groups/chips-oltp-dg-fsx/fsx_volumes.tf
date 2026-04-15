@@ -22,7 +22,7 @@ resource "aws_fsx_ontap_volume" "chips_oltp_dg_data_vol" {
   lifecycle {
     ignore_changes = [
       size_in_megabytes,
-      junction_path
+      #junction_path
     ]
   }
 }
@@ -51,7 +51,7 @@ resource "aws_fsx_ontap_volume" "chips_oltp_dg_fra_vol" {
   lifecycle {
     ignore_changes = [
       size_in_megabytes,
-      junction_path
+      #junction_path
     ]
   }
 }
@@ -80,7 +80,7 @@ resource "aws_fsx_ontap_volume" "chips_oltp_dg_redo_vol" {
   lifecycle {
     ignore_changes = [
       size_in_megabytes,
-      junction_path
+      #junction_path
     ]
   }
 }
