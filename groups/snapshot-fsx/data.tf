@@ -10,6 +10,18 @@ data "aws_subnet" "storage_subnet" {
   id       = each.value
 }
 
+data "aws_subnets" "application_subnets" {
+  filter {
+    name   = "tag:Name"
+    values = ["sub-application-*"]
+  }
+}
+
+data "aws_subnet" "application_subnet" {
+  for_each = toset(data.aws_subnets.application_subnets.ids)
+  id       = each.value
+}
+
 data "aws_vpc" "heritage" {
   filter {
     name   = "tag:Name"
