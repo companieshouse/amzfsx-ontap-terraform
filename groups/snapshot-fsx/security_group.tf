@@ -36,6 +36,16 @@ resource "aws_vpc_security_group_ingress_rule" "fsx_https" {
   to_port           = 443
 }
 
+resource "aws_vpc_security_group_ingress_rule" "fsx_app_https" {
+  count             = length(data.aws_subnets.application_subnets.ids)
+  description       = "Allow HTTPS connectivity for ${var.fsx_fs_name}"
+  security_group_id = aws_security_group.chips_oltp_fsx.id
+  ip_protocol       = "tcp"
+  cidr_ipv4         = values(data.aws_subnet.application_subnet)[count.index].cidr_block
+  from_port         = 443
+  to_port           = 443
+}
+
 resource "aws_vpc_security_group_ingress_rule" "fsx_snap_ndmp" {
   count             = length(data.aws_subnets.storage_subnets.ids)
   description       = "Allow SnapMirror operations ${var.fsx_fs_name}"
