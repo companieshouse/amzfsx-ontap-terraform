@@ -10,6 +10,27 @@ data "aws_subnet" "storage_subnet" {
   id       = each.value
 }
 
+data "aws_subnet" "subnet_storage_a" {
+  filter {
+     name   = "tag:Name"
+     values = ["sub-storage-a"]
+  }
+}
+
+data "aws_subnet" "subnet_storage_b" {
+  filter {
+     name   = "tag:Name"
+     values = ["sub-storage-b"]
+  }
+}
+
+data "aws_subnet" "subnet_storage_c" {
+  filter {
+     name   = "tag:Name"
+     values = ["sub-storage-c"]
+  }
+}
+
 data "aws_subnets" "application_subnets" {
   filter {
     name   = "tag:Name"

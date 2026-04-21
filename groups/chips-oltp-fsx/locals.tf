@@ -3,6 +3,10 @@ locals {
   fsx_admin_password    = data.vault_generic_secret.fsx_admin_password.data["fsx_admin_password"]
   netapp_account_id     = data.vault_generic_secret.netapp_account_id.data["account-id"]
   netapp_fsx_account_id = data.vault_generic_secret.netapp_fsx_account_id.data["account-id"]
+  storage_subnet_a_id   = data.aws_subnet.subnet_storage_a.id
+  storage_subnet_b_id   = data.aws_subnet.subnet_storage_b.id
+  storage_subnet_c_id   = data.aws_subnet.subnet_storage_c.id
+  preferred_subnet_id   = local.storage_subnet_a_id
 
   internal_fqdn = format("%s.%s.aws.internal", split("-", var.aws_account)[1], split("-", var.aws_account)[0])
 
