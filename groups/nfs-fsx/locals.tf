@@ -8,6 +8,11 @@ locals {
   domain_name           = var.ad_domain_name
   ou_dn                 = var.ad_ou_dn
 
+  storage_subnet_a_id   = data.aws_subnet.subnet_storage_a.id
+  storage_subnet_b_id   = data.aws_subnet.subnet_storage_b.id
+  storage_subnet_c_id   = data.aws_subnet.subnet_storage_c.id
+  preferred_subnet_id   = local.storage_subnet_a_id
+
   internal_fqdn = format("%s.%s.aws.internal", split("-", var.aws_account)[1], split("-", var.aws_account)[0])
 
   default_tags = {
