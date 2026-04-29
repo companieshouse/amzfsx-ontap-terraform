@@ -3,8 +3,8 @@ locals {
   fsx_admin_password    = data.vault_generic_secret.fsx_admin_password.data["fsx_admin_password"]
   netapp_account_id     = data.vault_generic_secret.netapp_account_id.data["account-id"]
   netapp_fsx_account_id = data.vault_generic_secret.netapp_fsx_account_id.data["account-id"]
-  ad_password           = data.vault_generic_secret.ad_password.data["ad_password"]
-  ad_username           = data.vault_generic_secret.ad_username.data["ad_username"]
+  #ad_password           = data.vault_generic_secret.ad_password.data["ad_password"]
+  #ad_username           = data.vault_generic_secret.ad_username.data["ad_username"]
   domain_name           = var.ad_domain_name
   ou_dn                 = var.ad_ou_dn
 

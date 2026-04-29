@@ -10,6 +10,27 @@ data "aws_subnet" "storage_subnet" {
   id       = each.value
 }
 
+data "aws_subnet" "subnet_storage_a" {
+  filter {
+     name   = "tag:Name"
+     values = ["sub-storage-a"]
+  }
+}
+
+data "aws_subnet" "subnet_storage_b" {
+  filter {
+     name   = "tag:Name"
+     values = ["sub-storage-b"]
+  }
+}
+
+data "aws_subnet" "subnet_storage_c" {
+  filter {
+     name   = "tag:Name"
+     values = ["sub-storage-c"]
+  }
+}
+
 data "aws_subnets" "application_subnets" {
   filter {
     name   = "tag:Name"
@@ -22,10 +43,10 @@ data "aws_subnet" "application_subnet" {
   id       = each.value
 }
 
-data "aws_vpc" "heritage" {
+data "aws_vpc" "vpc" {
   filter {
     name   = "tag:Name"
-    values = ["vpc-heritage-${var.environment}"]
+    values = ["vpc-${var.aws_account}"]
   }
 }
 
@@ -39,16 +60,16 @@ data "aws_ec2_managed_prefix_list" "administration_cidr_ranges" {
 }
 
 data "vault_generic_secret" "fsx_admin_password" {
-  path = "applications/${var.aws_account}/amzfsx/nfs-fsx"
+  path = "applications/${var.aws_account}-${var.aws_region}/amzfsx/finance-nfs-fsx"
 }
 
-data "vault_generic_secret" "ad_password" {
-  path = "applications/${var.aws_account}/amzfsx/nfs-fsx"
-}
+#data "vault_generic_secret" "ad_password" {
+#  path = "applications/${var.aws_account}/amzfsx/finance-nfs-fsx"
+#}
 
-data "vault_generic_secret" "ad_username" {
-  path = "applications/${var.aws_account}/amzfsx/nfs-fsx"
-}
+#data "vault_generic_secret" "ad_username" {
+#  path = "applications/${var.aws_account}/amzfsx/finance-nfs-fsx"
+#}
 
 data "vault_generic_secret" "netapp_account_id" {
   path = "applications/shared-services-eu-west-2/netapp/account"

@@ -1,5 +1,5 @@
 # Account details
-aws_account = "heritage-development"
+aws_account = "finance-development"
 aws_region  = "eu-west-2"
 environment = "development"
 
