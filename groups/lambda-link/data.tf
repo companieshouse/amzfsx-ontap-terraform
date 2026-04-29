@@ -10,9 +10,9 @@ data "aws_subnet" "storage_subnet" {
   id       = each.value
 }
 
-data "aws_vpc" "heritage" {
+data "aws_vpc" "vpc" {
   filter {
     name   = "tag:Name"
-    values = ["vpc-heritage-${var.environment}"]
+    values = ["vpc-${var.aws_account}"]
   }
 }

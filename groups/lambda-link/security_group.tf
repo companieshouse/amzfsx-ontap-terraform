@@ -3,7 +3,7 @@
 resource "aws_security_group" "fsx_lambda_link" {
   name        = local.common_resource_name
   description = "Security group for the ${var.lambda_link_name}"
-  vpc_id      = data.aws_vpc.heritage.id
+  vpc_id      = data.aws_vpc.vpc.id
 }
 
 resource "aws_vpc_security_group_ingress_rule" "fsx_ssh" {

@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "nfs_fsx" {
+data "aws_iam_policy_document" "finance_nfs_fsx" {
   statement {
     actions = ["fsx:*",
       "ec2:Describe*",
@@ -38,14 +38,14 @@ data "aws_iam_policy_document" "nfs_fsx" {
   }
 }
 
-resource "aws_iam_policy" "nfs_fsx" {
+resource "aws_iam_policy" "finance_nfs_fsx" {
   name        = "nfs_fsx"
   description = "Allows management of FSx storage workloads"
-  policy      = data.aws_iam_policy_document.nfs_fsx.json
+  policy      = data.aws_iam_policy_document.finance_nfs_fsx.json
 }
 
-resource "aws_iam_role" "nfs_fsx_role" {
-  name = "nfs_fsx_role"
+resource "aws_iam_role" "finance_nfs_fsx_role" {
+  name = "finance_nfs_fsx_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -67,7 +67,7 @@ resource "aws_iam_role" "nfs_fsx_role" {
 
 }
 
-resource "aws_iam_role_policy_attachment" "attach_nfs_fsx_policy" {
-  role       = aws_iam_role.nfs_fsx_role.name
-  policy_arn = aws_iam_policy.nfs_fsx.arn
+resource "aws_iam_role_policy_attachment" "attach_finance_nfs_fsx_policy" {
+  role       = aws_iam_role.finance_nfs_fsx_role.name
+  policy_arn = aws_iam_policy.finance_nfs_fsx.arn
 }
