@@ -43,10 +43,10 @@ data "aws_subnet" "application_subnet" {
   id       = each.value
 }
 
-data "aws_vpc" "heritage" {
+data "aws_vpc" "vpc" {
   filter {
     name   = "tag:Name"
-    values = ["vpc-heritage-${var.environment}"]
+    values = ["vpc-${var.aws_account}"]
   }
 }
 
@@ -60,7 +60,7 @@ data "aws_ec2_managed_prefix_list" "administration_cidr_ranges" {
 }
 
 data "vault_generic_secret" "fsx_admin_password" {
-  path = "applications/${var.aws_account}/amzfsx/e5-fsx"
+  path = "applications/${var.aws_account}-${var.aws_region}/amzfsx/e5-fsx"
 }
 
 data "vault_generic_secret" "netapp_account_id" {
