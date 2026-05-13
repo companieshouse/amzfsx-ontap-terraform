@@ -3,7 +3,7 @@
 resource "aws_security_group" "e5_fsx" {
   name        = local.common_resource_name
   description = "Security group for the ${var.fsx_fs_name}"
-  vpc_id      = data.aws_vpc.heritage.id
+  vpc_id      = data.aws_vpc.vpc.id
 }
 
 resource "aws_vpc_security_group_ingress_rule" "fsx_ssh_https" {
