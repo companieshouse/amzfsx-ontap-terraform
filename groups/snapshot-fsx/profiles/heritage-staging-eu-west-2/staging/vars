@@ -7,8 +7,8 @@ environment = "staging"
 fsx_fs_name             = "SNAPSHOT_FSx"
 fsx_storage_capacity    = "5120"
 fsx_deployment_type     = "SINGLE_AZ_2"
-fsx_throughput_capacity = "256"
-fsx_auto_backup_retention = "7"
+fsx_throughput_capacity = "384"
+fsx_auto_backup_retention = "0"
 
 #FSX Volume Sizes
 snapshot_data_size = 2000
