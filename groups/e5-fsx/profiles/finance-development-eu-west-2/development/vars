@@ -4,11 +4,11 @@ aws_region  = "eu-west-2"
 environment = "development"
 
 #FSX config
-fsx_fs_name             = "Finance_NFS_FSx"
+fsx_fs_name             = "E5_FSx"
 fsx_storage_capacity    = "1024"
 fsx_deployment_type     = "SINGLE_AZ_2"
 fsx_throughput_capacity = "128"
 fsx_auto_backup_retention = "0"
 
 # DNS
-fsx_fs_mgmt_dns_name = "finance-nfs-fsx-mgmt"
+fsx_fs_mgmt_dns_name = "finance-e5-fsx-mgmt"
