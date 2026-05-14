@@ -7,7 +7,7 @@ environment = "development"
 fsx_fs_name             = "E5_FSx"
 fsx_storage_capacity    = "1024"
 fsx_deployment_type     = "SINGLE_AZ_2"
-fsx_throughput_capacity = "128"
+fsx_throughput_capacity = "384"
 fsx_auto_backup_retention = "0"
 
 # DNS
