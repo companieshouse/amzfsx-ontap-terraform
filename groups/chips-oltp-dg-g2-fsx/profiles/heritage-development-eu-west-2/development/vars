@@ -11,14 +11,14 @@ fsx_throughput_capacity = "384"
 fsx_auto_backup_retention = "0"
 
 #FSX Volume Sizes
-chips_oltp_dg_data_size = 20
-chips_oltp_dg_fra_size  = 20
-chips_oltp_dg_redo_size = 20
+chips_oltp_dg_g2_data_size = 20
+chips_oltp_dg_g2_fra_size  = 20
+chips_oltp_dg_g2_redo_size = 20
 
 #FSX Volume Counts
-chips_oltp_dg_data_count = 6
-chips_oltp_dg_fra_count  = 4
-chips_oltp_dg_redo_count = 4
+chips_oltp_dg_g2_data_count = 6
+chips_oltp_dg_g2_fra_count  = 4
+chips_oltp_dg_g2_redo_count = 4
 
 # DNS
 fsx_fs_mgmt_dns_name = "chips-oltp-dg-g2-fsx-mgmt"

@@ -93,37 +93,37 @@ variable "fsx_fs_mgmt_dns_record" {
   default     = false
 }
 
-variable "chips_oltp_data_size" {
+variable "chips_oltp_g2_data_size" {
   type = string
   description = "Volume Size in Mb"
   default = "1"
 }
 
-variable "chips_oltp_fra_size" {
+variable "chips_oltp_g2_fra_size" {
   type = string
   description = "Volume Size in Mb"
   default = "1"
 }
 
-variable "chips_oltp_redo_size" {
+variable "chips_oltp_g2_redo_size" {
   type = string
   description = "Volume Size in Mb"
   default = "1"
 }
 
-variable "chips_oltp_data_count" {
+variable "chips_oltp_g2_data_count" {
   type        = string
   description = "Volume Count"
   default     = "0"
 }
 
-variable "chips_oltp_fra_count" {
+variable "chips_oltp_g2_fra_count" {
   type        = string
   description = "Volume Count"
   default     = "0"
 }
 
-variable "chips_oltp_redo_count" {
+variable "chips_oltp_g2_redo_count" {
   type        = string
   description = "Volume Count"
   default     = "0"
