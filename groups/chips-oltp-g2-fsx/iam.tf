@@ -97,7 +97,7 @@ resource "aws_iam_policy" "chips_oltp_fsx" {
 }
 
 resource "aws_iam_role" "chips_oltp_fsx_role" {
-  name = "chips_oltp_fsx_role"
+  name = "chips_oltp_g2_fsx_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
