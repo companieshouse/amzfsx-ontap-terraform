@@ -91,7 +91,7 @@ data "aws_iam_policy_document" "chips_oltp_fsx" {
 }
 
 resource "aws_iam_policy" "chips_oltp_fsx" {
-  name        = "chips_oltp_fsx"
+  name        = "chips_oltp_g2_fsx"
   description = "Allows management of FSx storage workloads"
   policy      = data.aws_iam_policy_document.chips_oltp_fsx.json
 }
