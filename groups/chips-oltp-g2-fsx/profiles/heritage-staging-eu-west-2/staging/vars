@@ -4,7 +4,7 @@ aws_region  = "eu-west-2"
 environment = "staging"
 
 #FSX config
-fsx_fs_name             = "CHIPS_OLTP_FSx"
+fsx_fs_name             = "CHIPS_OLTP_G2_FSx"
 fsx_storage_capacity    = "5000"
 fsx_deployment_type     = "SINGLE_AZ_2"
 fsx_throughput_capacity = "1536"
@@ -21,4 +21,4 @@ chips_oltp_g2_fra_count  = 4
 chips_oltp_g2_redo_count = 4
 
 # DNS
-fsx_fs_mgmt_dns_name = "chips-oltp-fsx-mgmt"
+fsx_fs_mgmt_dns_name = "chips-oltp-g2-fsx-mgmt"
