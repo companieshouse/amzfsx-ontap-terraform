@@ -1,5 +1,0 @@
-# Account details
-
-aws_account = "heritage-staging-eu-west-2"
-aws_region  = "eu-west-2"
-environment = "staging"
