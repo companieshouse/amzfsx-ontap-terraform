@@ -128,3 +128,9 @@ variable "chips_oltp_g2_redo_count" {
   description = "Volume Count"
   default     = "0"
 }
+
+variable "monitoring" {
+  description = "Boolean to enable/disable monitoring"
+  default     = false
+  type        = bool
+}
