@@ -32,9 +32,17 @@ resource "aws_cloudwatch_dashboard" "fsx" {
         properties = {
           view   = "timeSeries"
           title  = "FSx Percent Used Capacity"
-          metrics = [["AWS/FSx", "PercentUsedCapacity", "FileSystemId", aws_fsx_ontap_file_system.chips_oltp_g2_fsx.id]]
+          metrics = [
+                      [
+                        "AWS/FSx",
+                        "PercentUsedCapacity",
+                        "FileSystemId", 
+                        aws_fsx_ontap_file_system.chips_oltp_g2_fsx.id
+                      ]
+                    ]
           stat   = "Average"
           period = 300
+          region = var.aws_region
           yAxis  = { left = { min = 0, max = 100 } }
         }
       }
