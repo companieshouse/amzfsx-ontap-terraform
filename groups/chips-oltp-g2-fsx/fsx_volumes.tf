@@ -1,6 +1,6 @@
 
 resource "aws_fsx_ontap_volume" "chips_oltp_g2_data_vol" {
-  count                      = var.chips_oltp_g2_data_count ? 1 : 0
+  count                      = var.create_data_volumes ? var.chips_oltp_g2_data_count : 0
   name                       = "chips_oltp_g2_data_vol_${format("%02d", count.index + 1)}"
   junction_path              = "/chips_oltp_g2_data_vol_${format("%02d", count.index + 1)}"
   size_in_megabytes          = var.chips_oltp_g2_data_size
@@ -30,7 +30,7 @@ resource "aws_fsx_ontap_volume" "chips_oltp_g2_data_vol" {
 }
 
 resource "aws_fsx_ontap_volume" "chips_oltp_g2_fra_vol" {
-  count                      = var.chips_oltp_g2_fra_count ? 1 : 0
+  count                      = var.create_fra_volumes ? var.chips_oltp_g2_fra_count : 0
   name                       = "chips_oltp_g2_fra_vol_${format("%02d", count.index + 1)}"
   junction_path              = "/chips_oltp_g2_fra_vol_${format("%02d", count.index + 1)}"
   size_in_megabytes          = var.chips_oltp_g2_fra_size
@@ -61,7 +61,7 @@ resource "aws_fsx_ontap_volume" "chips_oltp_g2_fra_vol" {
 }
 
 resource "aws_fsx_ontap_volume" "chips_oltp_g2_redo_vol" {
-  count                      = var.chips_oltp_g2_redo_count ? 1 : 0
+  count                      = var.create_redo_volumes ? var.chips_oltp_g2_redo_count : 0
   name                       = "chips_oltp_g2_redo_vol_${format("%02d", count.index + 1)}"
   junction_path              = "/chips_oltp_g2_redo_vol_${format("%02d", count.index + 1)}"
   size_in_megabytes          = var.chips_oltp_g2_redo_size

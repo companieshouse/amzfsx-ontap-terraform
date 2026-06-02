@@ -1,5 +1,6 @@
 
 resource "aws_cloudwatch_metric_alarm" "fsx_percent_used_capacity" {
+  count = var.monitoring ? 1 : 0
   alarm_name          = "${local.common_resource_name}-fsx-percent-used-capacity"
   alarm_description   = "Alarm when FSx percent used capacity exceeds the configured threshold."
   namespace           = "AWS/FSx"
@@ -18,6 +19,7 @@ resource "aws_cloudwatch_metric_alarm" "fsx_percent_used_capacity" {
 }
 
 resource "aws_cloudwatch_dashboard" "fsx" {
+  count = var.monitoring ? 1 : 0
   dashboard_name = "${local.common_resource_name}-dashboard"
   dashboard_body = jsonencode({
     widgets = [

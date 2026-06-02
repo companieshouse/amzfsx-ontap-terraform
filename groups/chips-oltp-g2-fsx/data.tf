@@ -72,9 +72,9 @@ data "vault_generic_secret" "netapp_fsx_account_id" {
 }
 
 data "vault_generic_secret" "sns_email" {
-  path = "/applications/${var.aws_account}/monitoring"
+  path = "/applications/${var.aws_account}/monitoring/"
 }
 
 data "vault_generic_secret" "sns_url" {
-  path = "/applications/${var.aws_account}/monitoring"
+  path = "/applications/${var.aws_account}/monitoring/"
 }
