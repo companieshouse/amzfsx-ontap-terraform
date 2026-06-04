@@ -60,15 +60,15 @@ data "aws_ec2_managed_prefix_list" "administration_cidr_ranges" {
 }
 
 data "vault_generic_secret" "fsx_admin_password" {
-  path = "applications/${var.aws_account}-${var.aws_region}/amzfsx/finance-nfs-fsx"
+  path = "applications/${var.aws_account}-${var.aws_region}/amzfsx/e5-nfs-fsx"
 }
 
 #data "vault_generic_secret" "ad_password" {
-#  path = "applications/${var.aws_account}/amzfsx/finance-nfs-fsx"
+#  path = "applications/${var.aws_account}/amzfsx/e5-nfs-fsx"
 #}
 
 #data "vault_generic_secret" "ad_username" {
-#  path = "applications/${var.aws_account}/amzfsx/finance-nfs-fsx"
+#  path = "applications/${var.aws_account}/amzfsx/e5-nfs-fsx"
 #}
 
 data "vault_generic_secret" "netapp_account_id" {
