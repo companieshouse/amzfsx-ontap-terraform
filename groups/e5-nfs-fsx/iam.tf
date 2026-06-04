@@ -39,7 +39,7 @@ data "aws_iam_policy_document" "e5_nfs_fsx" {
 }
 
 resource "aws_iam_policy" "e5_nfs_fsx" {
-  name        = "nfs_fsx"
+  name        = "e5_nfs_fsx"
   description = "Allows management of FSx storage workloads"
   policy      = data.aws_iam_policy_document.e5_nfs_fsx.json
 }
