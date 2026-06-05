@@ -71,6 +71,12 @@ variable "fsx_fs_mgmt_dns_name" {
   default     = false
 }
 
+variable "fsx_fs_nfs_dns_name" {
+  type        = string
+  description = "The dns name for the FSx filesystem NFS address"
+  default     = false
+}
+
 variable "ad_domain_name" {
   type        = string
   description = "Active Directory Domain Name."
