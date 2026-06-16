@@ -13,7 +13,7 @@ resource "aws_fsx_ontap_volume" "e5fin_data_vol" {
 
   lifecycle {
     ignore_changes = [
-      size_in_megabytes,
+      #size_in_megabytes,
       junction_path
     ]
   }
@@ -34,7 +34,7 @@ resource "aws_fsx_ontap_volume" "e5fin_fra_vol" {
 
   lifecycle {
     ignore_changes = [
-      size_in_megabytes,
+      #size_in_megabytes,
       junction_path
     ]
   }
@@ -55,7 +55,7 @@ resource "aws_fsx_ontap_volume" "e5fin_redo_vol" {
 
   lifecycle {
     ignore_changes = [
-      size_in_megabytes,
+      #size_in_megabytes,
       junction_path
     ]
   }
@@ -76,7 +76,7 @@ resource "aws_fsx_ontap_volume" "e5arc_data_vol" {
 
   lifecycle {
     ignore_changes = [
-      size_in_megabytes,
+      #size_in_megabytes,
       junction_path
     ]
   }
@@ -97,7 +97,7 @@ resource "aws_fsx_ontap_volume" "e5arc_fra_vol" {
 
   lifecycle {
     ignore_changes = [
-      size_in_megabytes,
+      #size_in_megabytes,
       junction_path
     ]
   }
@@ -118,7 +118,7 @@ resource "aws_fsx_ontap_volume" "e5arc_redo_vol" {
 
   lifecycle {
     ignore_changes = [
-      size_in_megabytes,
+      #size_in_megabytes,
       junction_path
     ]
   }
