@@ -5,7 +5,7 @@ aws_region  = "eu-west-2"
 environment = "live"
 
 #FSX config
-fsx_fs_name             = "CHIPS_OLTP_G2_FSx"
+fsx_fs_name             = "CHIPS_ENVP1_FSx"
 fsx_storage_capacity    = "5500"
 fsx_deployment_type     = "SINGLE_AZ_2"
 fsx_throughput_capacity = "1536"
@@ -17,14 +17,14 @@ create_fra_volumes  = "true"
 create_redo_volumes = "true"
 
 #FSX Volume Sizes
-chips_oltp_g2_data_size = 5500000
-chips_oltp_g2_fra_size  = 650000
-chips_oltp_g2_redo_size = 150000
+chips_envp1_data_size = 5500000
+chips_envp1_fra_size  = 650000
+chips_envp1_redo_size = 150000
 
 #FSX Volume Counts
-chips_oltp_g2_data_count = 6
-chips_oltp_g2_fra_count  = 4
-chips_oltp_g2_redo_count = 4
+chips_envp1_data_count = 6
+chips_envp1_fra_count  = 4
+chips_envp1_redo_count = 4
 
 # DNS
 fsx_fs_mgmt_dns_name = "chips-envp1-fsx-mgmt"
