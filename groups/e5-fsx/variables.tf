@@ -164,3 +164,27 @@ variable "e5arc_redo_count" {
   description = "Volume Count"
   default     = "0"
 }
+
+variable "create_data_volumes" {
+  description = "Boolean to enable/disable volume creation"
+  default     = false
+  type        = bool
+}
+
+variable "create_fra_volumes" {
+  description = "Boolean to enable/disable volume creation"
+  default     = false
+  type        = bool
+}
+
+variable "create_redo_volumes" {
+  description = "Boolean to enable/disable volume creation"
+  default     = false
+  type        = bool
+}
+
+variable "monitoring" {
+  description = "Boolean to enable/disable monitoring"
+  default     = false
+  type        = bool
+}
