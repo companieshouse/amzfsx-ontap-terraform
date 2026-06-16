@@ -15,10 +15,10 @@ create_data_volumes = "true"
 create_fra_volumes  = "true"
 create_redo_volumes = "true"
 
-#FSX Volume Sizes - e5fin
-e5fin_data_size = 30000
-e5fin_fra_size  = 10000
-e5fin_redo_size = 5000
+#FSX Volume Sizes - e5fin in Mb
+e5fin_data_size = 600000
+e5fin_fra_size  = 200000
+e5fin_redo_size = 10000
 
 #FSX Volume Counts - e5fin
 e5fin_data_count = 4
@@ -26,9 +26,9 @@ e5fin_fra_count  = 4
 e5fin_redo_count = 4
 
 #FSX Volume Sizes - e5arc
-e5arc_data_size = 30000
-e5arc_fra_size  = 10000
-e5arc_redo_size = 5000
+e5arc_data_size = 600000
+e5arc_fra_size  = 200000
+e5arc_redo_size = 10000
 
 #FSX Volume Counts - e5arc
 e5arc_data_count = 4
