@@ -13,9 +13,9 @@ locals {
   default_tags = {
     # Tags
     Name           = local.common_resource_name
-    Repository     = "amzfsx-ontap-terraform"
-    Service        = "E5"
-    ServiceSubType = "FSx"
+    Repository     = var.repo
+    Service        = var.service
+    ServiceSubType = var.service_subtype
     Team           = "Linux and Storage Support"
   }
 
