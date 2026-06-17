@@ -99,7 +99,13 @@ variable "chips_envp1_data_size" {
   default     = 1
 }
 
-variable "chips_envp1_fra_size" {
+variable "chips_envp1_lobdata_size" {
+  type        = number
+  description = "Volume Size in Mb"
+  default     = 1
+}
+
+variable "chips_envp1_arch_size" {
   type        = number
   description = "Volume Size in Mb"
   default     = 1
@@ -117,7 +123,13 @@ variable "chips_envp1_data_count" {
   default     = 0
 }
 
-variable "chips_envp1_fra_count" {
+variable "chips_envp1_lobdata_count" {
+  type        = number
+  description = "Volume Count"
+  default     = 0
+}
+
+variable "chips_envp1_arch_count" {
   type        = number
   description = "Volume Count"
   default     = 0
