@@ -94,21 +94,21 @@ variable "fsx_fs_mgmt_dns_record" {
 }
 
 variable "chips_envp1_data_size" {
-  type = string
+  type        = string
   description = "Volume Size in Mb"
-  default = "1"
+  default     = "1"
 }
 
 variable "chips_envp1_fra_size" {
-  type = string
+  type        = string
   description = "Volume Size in Mb"
-  default = "1"
+  default     = "1"
 }
 
 variable "chips_envp1_redo_size" {
-  type = string
+  type        = string
   description = "Volume Size in Mb"
-  default = "1"
+  default     = "1"
 }
 
 variable "chips_envp1_data_count" {

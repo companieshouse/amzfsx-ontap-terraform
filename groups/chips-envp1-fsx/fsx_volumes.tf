@@ -1,6 +1,7 @@
 
 resource "aws_fsx_ontap_volume" "chips_envp1_data_vol" {
-  count                      = var.create_data_volumes ? var.chips_envp1_data_count : 0
+  count = var.create_data_volumes ? var.chips_envp1_data_count : 0
+
   name                       = "chips_envp1_data_vol_${format("%02d", count.index + 1)}"
   junction_path              = "/chips_envp1_data_vol_${format("%02d", count.index + 1)}"
   size_in_megabytes          = var.chips_envp1_data_size
@@ -30,7 +31,8 @@ resource "aws_fsx_ontap_volume" "chips_envp1_data_vol" {
 }
 
 resource "aws_fsx_ontap_volume" "chips_envp1_fra_vol" {
-  count                      = var.create_fra_volumes ? var.chips_envp1_fra_count : 0
+  count = var.create_fra_volumes ? var.chips_envp1_fra_count : 0
+
   name                       = "chips_envp1_fra_vol_${format("%02d", count.index + 1)}"
   junction_path              = "/chips_envp1_fra_vol_${format("%02d", count.index + 1)}"
   size_in_megabytes          = var.chips_envp1_fra_size
@@ -57,11 +59,12 @@ resource "aws_fsx_ontap_volume" "chips_envp1_fra_vol" {
       junction_path
     ]
   }
-  
+
 }
 
 resource "aws_fsx_ontap_volume" "chips_envp1_redo_vol" {
-  count                      = var.create_redo_volumes ? var.chips_envp1_redo_count : 0
+  count = var.create_redo_volumes ? var.chips_envp1_redo_count : 0
+
   name                       = "chips_envp1_redo_vol_${format("%02d", count.index + 1)}"
   junction_path              = "/chips_envp1_redo_vol_${format("%02d", count.index + 1)}"
   size_in_megabytes          = var.chips_envp1_redo_size

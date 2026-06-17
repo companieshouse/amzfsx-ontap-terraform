@@ -12,9 +12,9 @@ fsx_throughput_capacity = "1536"
 fsx_auto_backup_retention = "0"
 
 #Fsx Create Volumes
-create_data_volumes = "true"
-create_fra_volumes  = "true"
-create_redo_volumes = "true"
+create_data_volumes = true
+create_fra_volumes  = true
+create_redo_volumes = true
 
 #FSX Volume Sizes
 chips_envp1_data_size = 5500000
@@ -30,4 +30,4 @@ chips_envp1_redo_count = 4
 fsx_fs_mgmt_dns_name = "chips-envp1-fsx-mgmt"
 
 #Cloudwatch
-monitoring = "true"
+monitoring = true
