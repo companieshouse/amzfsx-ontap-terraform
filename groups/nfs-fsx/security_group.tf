@@ -28,6 +28,15 @@ resource "aws_vpc_security_group_ingress_rule" "fsx_ssh_https" {
   to_port           = each.value
 }
 
+resource "aws_vpc_security_group_ingress_rule" "fsx_ci_https" {
+  description       = "Allow HTTPS connectivity between Concourse and ${var.fsx_fs_name}"
+  security_group_id = aws_security_group.nfs_fsx.id
+  ip_protocol       = "tcp"
+  prefix_list_id    = data.aws_ec2_managed_prefix_list.shared_services_management_cidrs.id
+  from_port         = 443
+  to_port           = 443
+}
+
 resource "aws_vpc_security_group_ingress_rule" "fsx_ssh" {
   count             = length(data.aws_subnets.storage_subnets.ids)
   description       = "Allow SSH connectivity for ${var.fsx_fs_name}"
