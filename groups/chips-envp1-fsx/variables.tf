@@ -43,24 +43,24 @@ variable "fsx_fs_name" {
 }
 
 variable "fsx_storage_capacity" {
-  type        = string
+  type        = number
   description = "The storage capacity (GiB) of the file system"
 }
 
 variable "fsx_deployment_type" {
-  type        = string
+  type        = number
   description = "The filesystem deployment type. Supports MULTI_AZ_1, MULTI_AZ_2, SINGLE_AZ_1, and SINGLE_AZ_2"
 }
 
 variable "fsx_throughput_capacity" {
-  type        = string
+  type        = number
   description = "Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are 128, 256, 512, 1024, 2048, and 4096"
 }
 
 variable "fsx_auto_backup_retention" {
-  type        = string
+  type        = number
   description = "The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days."
-  default     = "0"
+  default     = 0
 }
 
 variable "vpc_id" {
