@@ -48,7 +48,7 @@ variable "fsx_storage_capacity" {
 }
 
 variable "fsx_deployment_type" {
-  type        = number
+  type        = string
   description = "The filesystem deployment type. Supports MULTI_AZ_1, MULTI_AZ_2, SINGLE_AZ_1, and SINGLE_AZ_2"
 }
 
