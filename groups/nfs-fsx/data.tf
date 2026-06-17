@@ -12,22 +12,22 @@ data "aws_subnet" "storage_subnet" {
 
 data "aws_subnet" "subnet_storage_a" {
   filter {
-     name   = "tag:Name"
-     values = ["sub-storage-a"]
+    name   = "tag:Name"
+    values = ["sub-storage-a"]
   }
 }
 
 data "aws_subnet" "subnet_storage_b" {
   filter {
-     name   = "tag:Name"
-     values = ["sub-storage-b"]
+    name   = "tag:Name"
+    values = ["sub-storage-b"]
   }
 }
 
 data "aws_subnet" "subnet_storage_c" {
   filter {
-     name   = "tag:Name"
-     values = ["sub-storage-c"]
+    name   = "tag:Name"
+    values = ["sub-storage-c"]
   }
 }
 
@@ -59,16 +59,20 @@ data "aws_ec2_managed_prefix_list" "administration_cidr_ranges" {
   name = "administration-cidr-ranges"
 }
 
+data "aws_ec2_managed_prefix_list" "shared_services_management_cidrs" {
+  name = "shared-services-management-cidrs"
+}
+
 data "vault_generic_secret" "fsx_admin_password" {
-  path = "applications/${var.aws_account}/amzfsx/nfs-fsx"
+  path = "applications/${var.aws_account}/amzfsx/nfs-fsx/credentials"
 }
 
 data "vault_generic_secret" "ad_password" {
-  path = "applications/${var.aws_account}/amzfsx/nfs-fsx"
+  path = "applications/${var.aws_account}/amzfsx/nfs-fsx/credentials"
 }
 
 data "vault_generic_secret" "ad_username" {
-  path = "applications/${var.aws_account}/amzfsx/nfs-fsx"
+  path = "applications/${var.aws_account}/amzfsx/nfs-fsx/credentials"
 }
 
 data "vault_generic_secret" "netapp_account_id" {
