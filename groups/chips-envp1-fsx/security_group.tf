@@ -17,7 +17,7 @@ resource "aws_vpc_security_group_ingress_rule" "fsx_ssh_https" {
 }
 
 resource "aws_vpc_security_group_ingress_rule" "fsx_ssh" {
-  count             = length(data.aws_subnets.storage_subnets.ids)  
+  count             = length(data.aws_subnets.storage_subnets.ids)
   description       = "Allow SSH connectivity for ${var.fsx_fs_name}"
   security_group_id = aws_security_group.chips_envp1_fsx.id
   ip_protocol       = "tcp"
