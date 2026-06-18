@@ -153,7 +153,13 @@ variable "create_data_volumes" {
   type        = bool
 }
 
-variable "create_fra_volumes" {
+variable "create_lobdata_volumes" {
+  description = "Boolean to enable/disable volume creation"
+  default     = false
+  type        = bool
+}
+
+variable "create_arch_volumes" {
   description = "Boolean to enable/disable volume creation"
   default     = false
   type        = bool
