@@ -1,5 +1,7 @@
 # Account details
-
-aws_account = "heritage-live-eu-west-2"
+aws_account = "heritage-live"
 aws_region  = "eu-west-2"
 environment = "live"
+
+# Lambda Link
+lambda_link_name = "FSx-Lambda"

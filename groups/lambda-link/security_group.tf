@@ -7,7 +7,8 @@ resource "aws_security_group" "fsx_lambda_link" {
 }
 
 resource "aws_vpc_security_group_ingress_rule" "fsx_ssh" {
-  count             = length(data.aws_subnets.storage_subnets.ids)
+  count = length(data.aws_subnets.storage_subnets.ids)
+
   description       = "Allow SSH connectivity ${var.lambda_link_name}"
   security_group_id = aws_security_group.fsx_lambda_link.id
   ip_protocol       = "tcp"
@@ -17,7 +18,8 @@ resource "aws_vpc_security_group_ingress_rule" "fsx_ssh" {
 }
 
 resource "aws_vpc_security_group_ingress_rule" "fsx_https" {
-  count             = length(data.aws_subnets.storage_subnets.ids)
+  count = length(data.aws_subnets.storage_subnets.ids)
+
   description       = "Allow HTTPS connectivity ${var.lambda_link_name}"
   security_group_id = aws_security_group.fsx_lambda_link.id
   ip_protocol       = "tcp"
@@ -34,4 +36,3 @@ resource "aws_vpc_security_group_egress_rule" "fsx_lambda_link_all_out" {
   cidr_ipv4         = "0.0.0.0/0"
   ip_protocol       = "-1"
 }
-
