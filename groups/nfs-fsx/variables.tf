@@ -78,9 +78,9 @@ variable "ad_domain_name" {
 }
 
 variable "ad_ou_dn" {
-  type = string
+  type        = string
   description = "Active Directory OU DN"
-  default = "OU=AD Groups,OU=CARDIFF,OU=CH,DC=CompaniesHouse,DC=local"
+  default     = "OU=AD Groups,OU=CARDIFF,OU=CH,DC=CompaniesHouse,DC=local"
 }
 
 variable "nfs_ports" {
@@ -90,7 +90,7 @@ variable "nfs_ports" {
     { "protocol" = "tcp", "port" = 111 },
     { "protocol" = "udp", "port" = 111 },
     { "protocol" = "tcp", "port" = 635 },
-    { "protocol" = "udp", "port" = 635 },    
+    { "protocol" = "udp", "port" = 635 },
     { "protocol" = "tcp", "port" = 2049 },
     { "protocol" = "udp", "port" = 2049 },
     { "protocol" = "tcp", "port" = 4045, "to_port" = 4046 },
