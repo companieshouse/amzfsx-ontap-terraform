@@ -1,11 +1,11 @@
-resource "aws_fsx_ontap_file_system" "e5_fsx" {
+resource "aws_fsx_ontap_file_system" "e5_fin_fsx" {
   storage_capacity                = var.fsx_storage_capacity
   subnet_ids                      = can(regex("MULTI", var.fsx_deployment_type)) ? [local.storage_subnet_a_id, local.storage_subnet_b_id] : [local.preferred_subnet_id]
   deployment_type                 = var.fsx_deployment_type
   throughput_capacity             = var.fsx_throughput_capacity
   preferred_subnet_id             = local.preferred_subnet_id
   fsx_admin_password              = local.fsx_admin_password
-  security_group_ids              = [aws_security_group.e5_fsx.id]
+  security_group_ids              = [aws_security_group.e5_fin_fsx.id]
   automatic_backup_retention_days = var.fsx_auto_backup_retention
 
   tags = merge(
