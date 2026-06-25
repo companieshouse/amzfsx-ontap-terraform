@@ -3,7 +3,7 @@ resource "aws_fsx_ontap_file_system" "e5_nfs_fsx" {
   subnet_ids                      = local.storage_subnets
   deployment_type                 = var.fsx_deployment_type
   throughput_capacity             = var.fsx_throughput_capacity
-  preferred_subnet_id             = preferred_subnet_id
+  preferred_subnet_id             = local.preferred_subnet_id
   fsx_admin_password              = local.fsx_admin_password
   security_group_ids              = [aws_security_group.e5_nfs_fsx.id, aws_security_group.e5_nfs_fsx_nfs.id, aws_security_group.e5_nfs_fsx_cifs.id]
   automatic_backup_retention_days = var.fsx_auto_backup_retention
