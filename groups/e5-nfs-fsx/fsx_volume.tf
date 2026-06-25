@@ -9,4 +9,11 @@ resource "aws_fsx_ontap_volume" "e5_nfs_vol_01" {
     name           = "AUTO"
     cooling_period = 31
   }
+
+  lifecycle {
+    ignore_changes = [
+      size_in_megabytes,
+      junction_path
+    ]
+  }
 }
