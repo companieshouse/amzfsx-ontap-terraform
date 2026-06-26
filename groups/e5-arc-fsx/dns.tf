@@ -3,5 +3,5 @@ resource "aws_route53_record" "e5_arc_fsx_dns" {
   name    = var.fsx_fs_mgmt_dns_name
   type    = "A"
   ttl     = 300
-  records = "${tolist(aws_fsx_ontap_file_system.e5_arc_fsx.endpoints[0].management[0].ip_addresses)[0]}"
+  records = ["${tolist(aws_fsx_ontap_file_system.e5_arc_fsx.endpoints[0].management[0].ip_addresses)[0]}"]
 }
