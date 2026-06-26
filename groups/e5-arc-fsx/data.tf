@@ -1,3 +1,15 @@
+data "aws_subnets" "data_subnets" {
+  filter {
+    name   = "tag:Name"
+    values = ["sub-data-*"]
+  }
+}
+
+data "aws_subnet" "data_subnet" {
+  for_each = toset(data.aws_subnets.data_subnets.ids)
+  id       = each.value
+}
+
 data "aws_subnets" "storage_subnets" {
   filter {
     name   = "tag:Name"
@@ -60,7 +72,7 @@ data "aws_ec2_managed_prefix_list" "administration_cidr_ranges" {
 }
 
 data "vault_generic_secret" "fsx_admin_password" {
-  path = "applications/${var.aws_account}-${var.aws_region}/amzfsx/e5-fsx"
+  path = "applications/${var.aws_account}-${var.aws_region}/amzfsx/e5-arc-fsx/credentials"
 }
 
 data "vault_generic_secret" "netapp_account_id" {

@@ -1,3 +1,15 @@
+data "aws_subnets" "data_subnets" {
+  filter {
+    name   = "tag:Name"
+    values = ["sub-data-*"]
+  }
+}
+
+data "aws_subnet" "data_subnet" {
+  for_each = toset(data.aws_subnets.data_subnets.ids)
+  id       = each.value
+}
+
 data "aws_subnets" "storage_subnets" {
   filter {
     name   = "tag:Name"
