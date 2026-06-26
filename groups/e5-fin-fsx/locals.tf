@@ -8,6 +8,8 @@ locals {
   storage_subnet_c_id   = data.aws_subnet.subnet_storage_c.id
   preferred_subnet_id   = local.storage_subnet_a_id
 
+  storage_subnets = can(regex("MULTI", var.fsx_deployment_type)) ? [local.storage_subnet_a_id, local.storage_subnet_b_id] : [local.preferred_subnet_id]
+
   internal_fqdn = format("%s.%s.aws.internal", split("-", var.aws_account)[1], split("-", var.aws_account)[0])
 
   default_tags = {

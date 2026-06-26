@@ -43,7 +43,7 @@ variable "fsx_fs_name" {
 }
 
 variable "fsx_storage_capacity" {
-  type        = string
+  type        = number
   description = "The storage capacity (GiB) of the file system"
 }
 
@@ -53,12 +53,12 @@ variable "fsx_deployment_type" {
 }
 
 variable "fsx_throughput_capacity" {
-  type        = string
+  type        = number
   description = "Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are 128, 256, 512, 1024, 2048, and 4096"
 }
 
 variable "fsx_auto_backup_retention" {
-  type        = string
+  type        = number
   description = "The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days."
   default     = "0"
 }
@@ -93,74 +93,38 @@ variable "fsx_fs_mgmt_dns_record" {
   default     = false
 }
 
-variable "e5fin_data_size" {
-  type = string
+variable "e5_arc_data_size" {
+  type = number
   description = "Volume Size in Mb"
   default = "1"
 }
 
-variable "e5fin_fra_size" {
-  type = string
+variable "e5_arc_fra_size" {
+  type = number
   description = "Volume Size in Mb"
   default = "1"
 }
 
-variable "e5fin_redo_size" {
-  type = string
+variable "e5_arc_redo_size" {
+  type = number
   description = "Volume Size in Mb"
   default = "1"
 }
 
-variable "e5fin_data_count" {
-  type        = string
+variable "e5_arc_data_count" {
+  type        = number
   description = "Volume Count"
   default     = "0"
 }
 
-variable "e5fin_fra_count" {
-  type        = string
+variable "e5_arc_fra_count" {
+  type        = number
   description = "Volume Count"
   default     = "0"
 }
 
-variable "e5fin_redo_count" {
-  type        = string
-  description = "Volume Count"
-  default     = "0"
-}
-
-variable "e5arc_data_size" {
-  type = string
-  description = "Volume Size in Mb"
-  default = "1"
-}
-
-variable "e5arc_fra_size" {
-  type = string
-  description = "Volume Size in Mb"
-  default = "1"
-}
-
-variable "e5arc_redo_size" {
-  type = string
-  description = "Volume Size in Mb"
-  default = "1"
-}
-
-variable "e5arc_data_count" {
-  type        = string
-  description = "Volume Count"
-  default     = "0"
-}
-
-variable "e5arc_fra_count" {
-  type        = string
-  description = "Volume Count"
-  default     = "0"
-}
-
-variable "e5arc_redo_count" {
-  type        = string
+variable "e5_arc_redo_count" {
+  type        = number
   description = "Volume Count"
   default     = "0"
 }

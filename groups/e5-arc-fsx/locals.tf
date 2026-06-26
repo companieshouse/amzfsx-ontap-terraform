@@ -1,6 +1,6 @@
 locals {
   common_resource_name  = "${var.environment}-${var.fsx_fs_name}"
-  fsx_admin_password    = data.vault_generic_secret.fsx_admin_password.data["fsx_admin_password"]
+  fsx_admin_password    = data.vault_generic_secret.fsx_admin_password.data["fsxadmin_password"]
   netapp_account_id     = data.vault_generic_secret.netapp_account_id.data["account-id"]
   netapp_fsx_account_id = data.vault_generic_secret.netapp_fsx_account_id.data["account-id"]
   storage_subnet_a_id   = data.aws_subnet.subnet_storage_a.id
@@ -8,7 +8,11 @@ locals {
   storage_subnet_c_id   = data.aws_subnet.subnet_storage_c.id
   preferred_subnet_id   = local.storage_subnet_a_id
 
+  storage_subnets = can(regex("MULTI", var.fsx_deployment_type)) ? [local.storage_subnet_a_id, local.storage_subnet_b_id] : [local.preferred_subnet_id]
+
   internal_fqdn = format("%s.%s.aws.internal", split("-", var.aws_account)[1], split("-", var.aws_account)[0])
+
+  management_ip = "${tolist(aws_fsx_ontap_file_system.e5_arc_fsx.endpoints[0].management[0].ip_addresses)[0]}"
 
   default_tags = {
     # Tags

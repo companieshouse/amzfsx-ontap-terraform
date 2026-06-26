@@ -1,103 +1,11 @@
-data "aws_iam_policy_document" "e5_fsx" {
-  statement {
-    actions = [
-      "fsx:DescribeFileSystems",
-      "fsx:DescribeStorageVirtualMachines",
-      "fsx:DescribeVolumes",
-      "fsx:ListTagsForResource",
-      "fsx:DescribeBackups",
-      "fsx:DescribeSharedVpcConfiguration",
-      "cloudwatch:GetMetricData",
-      "cloudwatch:GetMetricStatistics",
-      "ec2:DescribeInstances",
-      "ec2:DescribeVolumes",
-      "elasticfilesystem:DescribeFileSystems",
-      "ce:GetCostAndUsage",
-      "ce:GetTags",
-      "ce:GetCostAndUsageWithResources",
-      "ce:GetCostForecast",
-      "ce:GetUsageForecast"
-    ]
-    resources = ["*"]
-  }
-
-  statement {
-    actions = [
-      "fsx:CreateVolume",
-      "fsx:DeleteVolume",
-      "fsx:UpdateFileSystem",
-      "fsx:UpdateStorageVirtualMachine",
-      "fsx:UpdateVolume",
-      "fsx:CreateBackup",
-      "fsx:CreateVolumeFromBackup",
-      "fsx:DeleteBackup",
-      "fsx:TagResource",
-      "fsx:UntagResource",
-      "bedrock:InvokeModelWithResponseStream",
-      "bedrock:InvokeModel",
-      "bedrock:ListInferenceProfiles",
-      "bedrock:GetInferenceProfile"
-    ]
-    resources = ["*"]
-  }
-
-  statement {
-    actions = [
-      "fsx:CreateFileSystem",
-      "fsx:CreateStorageVirtualMachine",
-      "fsx:DeleteFileSystem",
-      "fsx:DeleteStorageVirtualMachine",
-      "fsx:TagResource",
-      "fsx:UntagResource",
-      "kms:CreateGrant",
-      "iam:CreateServiceLinkedRole",
-      "ec2:CreateSecurityGroup",
-      "ec2:CreateTags",
-      "ec2:DescribeVpcs",
-      "ec2:DescribeSubnets",
-      "ec2:DescribeSecurityGroups",
-      "ec2:DescribeRouteTables",
-      "ec2:DescribeNetworkInterfaces",
-      "ec2:DescribeVolumeStatus",
-      "kms:DescribeKey",
-      "kms:ListKeys",
-      "kms:ListAliases"
-    ]
-    resources = ["*"]
-  }
-
-  statement {
-    actions = [
-      "ec2:AuthorizeSecurityGroupEgress",
-      "ec2:AuthorizeSecurityGroupIngress",
-      "ec2:RevokeSecurityGroupEgress",
-      "ec2:RevokeSecurityGroupIngress",
-      "ec2:DeleteSecurityGroup"
-    ]
-    resources = ["*"]
-    condition {
-      test     = "StringLike"
-      variable = "ec2:ResourceTag/AppCreator"
-      values   = ["NetappFSxWF"]
-    }
-  }
-
-  statement {
-    actions = [
-      "iam:SimulatePrincipalPolicy"
-    ]
-    resources = ["*"]
-  }
-}
-
-resource "aws_iam_policy" "e5_fsx" {
-  name        = "e5_fsx"
+resource "aws_iam_policy" "e5_arc_fsx" {
+  name        = "e5_arc_fsx"
   description = "Allows management of FSx storage workloads"
-  policy      = data.aws_iam_policy_document.e5_fsx.json
+  policy      = data.aws_iam_policy_document.e5_arc_fsx.json
 }
 
-resource "aws_iam_role" "e5_fsx_role" {
-  name = "fiance_dbs_fsx_role"
+resource "aws_iam_role" "e5_arc_fsx_role" {
+  name = "e5_arc_fsx_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -119,7 +27,7 @@ resource "aws_iam_role" "e5_fsx_role" {
 
 }
 
-resource "aws_iam_role_policy_attachment" "attach_e5_fsx_policy" {
-  role       = aws_iam_role.e5_fsx_role.name
-  policy_arn = aws_iam_policy.e5_fsx.arn
+resource "aws_iam_role_policy_attachment" "attach_e5_arc_fsx_policy" {
+  role       = aws_iam_role.e5_arc_fsx_role.name
+  policy_arn = aws_iam_policy.e5_arc_fsx.arn
 }
