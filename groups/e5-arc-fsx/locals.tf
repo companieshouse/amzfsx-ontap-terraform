@@ -12,8 +12,6 @@ locals {
 
   internal_fqdn = format("%s.%s.aws.internal", split("-", var.aws_account)[1], split("-", var.aws_account)[0])
 
-  management_ip = "${tolist(aws_fsx_ontap_file_system.e5_arc_fsx.endpoints[0].management[0].ip_addresses)[0]}"
-
   default_tags = {
     # Tags
     Name           = local.common_resource_name
