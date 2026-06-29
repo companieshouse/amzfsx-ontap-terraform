@@ -5,15 +5,15 @@ environment = "development"
 
 #FSX config
 fsx_fs_name             = "CHIPS_OLTP_G2_FSx"
-fsx_storage_capacity    = "1024"
+fsx_storage_capacity    = 1024
 fsx_deployment_type     = "SINGLE_AZ_2"
-fsx_throughput_capacity = "384"
-fsx_auto_backup_retention = "0"
+fsx_throughput_capacity = 384
+fsx_auto_backup_retention = 0
 
 #Fsx Create Volumes
-create_data_volumes = "true"
-create_fra_volumes  = "true"
-create_redo_volumes = "true"
+create_data_volumes = true
+create_fra_volumes  = true
+create_redo_volumes = true
 
 #FSX Volume Sizes
 chips_oltp_g2_data_size = 20
@@ -21,7 +21,7 @@ chips_oltp_g2_fra_size  = 20
 chips_oltp_g2_redo_size = 20
 
 #FSX Volume Counts
-chips_oltp_g2_data_count = "6"
+chips_oltp_g2_data_count = 6
 chips_oltp_g2_fra_count  = 4
 chips_oltp_g2_redo_count = 4
 
@@ -29,4 +29,4 @@ chips_oltp_g2_redo_count = 4
 fsx_fs_mgmt_dns_name = "chips-oltp-g2-fsx-mgmt"
 
 #Cloudwatch
-monitoring = "false"
+monitoring = true

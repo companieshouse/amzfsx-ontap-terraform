@@ -57,7 +57,7 @@ resource "aws_fsx_ontap_volume" "chips_oltp_g2_fra_vol" {
       junction_path
     ]
   }
-  
+
 }
 
 resource "aws_fsx_ontap_volume" "chips_oltp_g2_redo_vol" {

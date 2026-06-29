@@ -18,4 +18,11 @@ resource "aws_fsx_ontap_file_system" "chips_oltp_g2_fsx" {
     )
   )
 
+  lifecycle {
+    ignore_changes = [
+      storage_capacity,
+      throughput_capacity
+    ]
+  }
+
 }
