@@ -12,22 +12,22 @@ data "aws_subnet" "storage_subnet" {
 
 data "aws_subnet" "subnet_storage_a" {
   filter {
-     name   = "tag:Name"
-     values = ["sub-storage-a"]
+    name   = "tag:Name"
+    values = ["sub-storage-a"]
   }
 }
 
 data "aws_subnet" "subnet_storage_b" {
   filter {
-     name   = "tag:Name"
-     values = ["sub-storage-b"]
+    name   = "tag:Name"
+    values = ["sub-storage-b"]
   }
 }
 
 data "aws_subnet" "subnet_storage_c" {
   filter {
-     name   = "tag:Name"
-     values = ["sub-storage-c"]
+    name   = "tag:Name"
+    values = ["sub-storage-c"]
   }
 }
 
@@ -69,4 +69,12 @@ data "vault_generic_secret" "netapp_account_id" {
 
 data "vault_generic_secret" "netapp_fsx_account_id" {
   path = "applications/shared-services-eu-west-2/netapp/fsx/"
+}
+
+data "vault_generic_secret" "sns_email" {
+  path = "/applications/${var.aws_account}/monitoring/"
+}
+
+data "vault_generic_secret" "sns_url" {
+  path = "/applications/${var.aws_account}/monitoring/"
 }
