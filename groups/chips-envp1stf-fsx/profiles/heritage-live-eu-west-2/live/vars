@@ -1,0 +1,36 @@
+# Account details
+
+aws_account = "heritage-live-eu-west-2"
+aws_region  = "eu-west-2"
+environment = "live"
+
+#FSX config
+fsx_fs_name             = "CHIPS_ENVP1STF_FSx"
+fsx_storage_capacity    = 1000
+fsx_deployment_type     = "SINGLE_AZ_2"
+fsx_throughput_capacity = 1536
+fsx_auto_backup_retention = 0
+
+#Fsx Create Volumes
+create_data_volumes = true
+create_lobdata_volumes = true
+create_arch_volumes  = true
+create_redo_volumes = true
+
+#FSX Volume Sizes in Mb
+chips_envp1stf_data_size = 2000000
+chips_envp1stf_lobdata_size = 500000
+chips_envp1stf_arch_size = 900000
+chips_envp1stf_redo_size = 350000
+
+#FSX Volume Counts
+chips_envp1stf_data_count = 3
+chips_envp1stf_lobdata_count = 1
+chips_envp1stf_arch_count = 2 
+chips_envp1stf_redo_count = 2
+
+# DNS
+fsx_fs_mgmt_dns_name = "chips-envp1stf-fsx-mgmt"
+
+#Cloudwatch
+monitoring = true
