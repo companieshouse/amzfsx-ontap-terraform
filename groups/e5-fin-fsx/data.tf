@@ -82,3 +82,12 @@ data "vault_generic_secret" "netapp_account_id" {
 data "vault_generic_secret" "netapp_fsx_account_id" {
   path = "applications/shared-services-eu-west-2/netapp/fsx/"
 }
+
+data "vault_generic_secret" "sns_email" {
+  path = "/applications/${var.aws_account}-${var.aws_region}/monitoring/"
+}
+
+
+data "vault_generic_secret" "sns_url" {
+  path = "/applications/${var.aws_account}-${var.aws_region}/monitoring/"
+}
