@@ -38,6 +38,14 @@ data "aws_subnets" "application_subnets" {
   }
 }
 
+data "vault_generic_secret" "sns_email" {
+  path = "/applications/${var.aws_account}-${var.aws_region}/monitoring/"
+}
+
+data "vault_generic_secret" "sns_url" {
+  path = "/applications/${var.aws_account}-${var.aws_region}/monitoring/"
+}
+
 data "aws_subnet" "application_subnet" {
   for_each = toset(data.aws_subnets.application_subnets.ids)
   id       = each.value

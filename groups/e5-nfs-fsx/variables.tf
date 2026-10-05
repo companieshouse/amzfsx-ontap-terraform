@@ -1,4 +1,4 @@
-variable "aws_account" {
+≠variable "aws_account" {
   type        = string
   description = "The name of the AWS account in which resources will be provisioned."
 }
@@ -104,4 +104,10 @@ variable "cifs_ports" {
     { "protocol" = "tcp", "port" = 445 },
     { "protocol" = "udp", "port" = 137 }
   ]
+}
+
+variable "monitoring" {
+  type        = bool
+  description = "Enable CloudWatch monitoring and SNS notifications for the FSx filesystem."
+  default     = false
 }
