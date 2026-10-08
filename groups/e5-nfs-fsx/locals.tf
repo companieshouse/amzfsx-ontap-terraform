@@ -21,10 +21,9 @@ locals {
     ServiceSubType = var.service_subtype
     Team           = "Linux and Storage Support"
 
+  }
   sns_email_secret = data.vault_generic_secret.sns_email.data
   linux_sns_email  = local.sns_email_secret["linux-email"]
-
-  }
 
   application_cidr_blocks = [for subnet in data.aws_subnet.application_subnet : subnet.cidr_block]
   nfs_cidr_blocks         = concat(local.application_cidr_blocks)
