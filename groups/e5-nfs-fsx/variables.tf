@@ -1,4 +1,4 @@
-≠variable "aws_account" {
+variable "aws_account" {
   type        = string
   description = "The name of the AWS account in which resources will be provisioned."
 }
