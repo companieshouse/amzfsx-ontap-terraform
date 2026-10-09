@@ -105,3 +105,9 @@ variable "cifs_ports" {
     { "protocol" = "udp", "port" = 137 }
   ]
 }
+
+variable "monitoring" {
+  type        = bool
+  description = "Enable CloudWatch monitoring and SNS notifications for the FSx filesystem."
+  default     = false
+}
