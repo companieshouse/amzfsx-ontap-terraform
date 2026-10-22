@@ -19,7 +19,7 @@ resource "aws_sns_topic_subscription" "chips_oltp_dg_g2_fsx_system_Subscriptionh
   count     = var.monitoring ? 1 : 0
   topic_arn = aws_sns_topic.chips_oltp_dg_g2_fsx[0].arn
   protocol  = "https"
-  endpoint  = data.vault_generic_secret.sns_url.data["url"]
+  endpoint  = data.vault_kv_secret_v2.sns_url.data["linux_url"]
 
 
   depends_on = [
