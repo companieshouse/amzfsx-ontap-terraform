@@ -11,9 +11,9 @@ fsx_throughput_capacity = 1536
 fsx_auto_backup_retention = 0
 
 #Fsx Create Volumes
-create_data_volumes = false
-create_fra_volumes  = false
-create_redo_volumes = false
+create_data_volumes = true
+create_fra_volumes  = true
+create_redo_volumes = true
 
 #FSX Volume Sizes
 chips_oltp_dg_g2_data_size = 5500000
