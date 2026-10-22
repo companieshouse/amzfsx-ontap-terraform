@@ -74,10 +74,12 @@ data "vault_kv_secret_v2" "netapp_fsx_account_id" {
   name  = "shared-secrets/netapp/fsx"
 }
 
-data "vault_generic_secret" "sns_email" {
-  path = "/applications/${var.aws_account}/monitoring/"
+data "vault_kv_secret_v2" "sns_email" {
+  mount = "team-unix-storage"
+  name = "shared-secrets/sns"
 }
 
-data "vault_generic_secret" "sns_url" {
-  path = "/applications/${var.aws_account}/monitoring/"
+data "vault_kv_secret_v2" "sns_url" {
+  mount = "team-unix-storage"
+  name = "shared-secrets/sns"
 }

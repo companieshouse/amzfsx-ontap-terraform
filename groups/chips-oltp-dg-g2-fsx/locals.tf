@@ -13,8 +13,8 @@ locals {
 
   internal_fqdn = format("%s.%s.aws.internal", split("-", var.aws_account)[1], split("-", var.aws_account)[0])
 
-  sns_email_secret = data.vault_generic_secret.sns_email.data
-  linux_sns_email  = local.sns_email_secret["linux-email"]
+  sns_email_secret = data.vault_kv_secret_v2.sns_email.data
+  linux_sns_email  = local.sns_email_secret["linux_email"]
 
   default_tags = {
     # Tags
