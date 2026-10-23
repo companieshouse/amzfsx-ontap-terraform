@@ -104,3 +104,9 @@ variable "snapshot_data_count" {
   description = "Volume Count"
   default     = "0"
 }
+
+variable "monitoring" {
+  type        = bool
+  description = "Enable CloudWatch monitoring and SNS notifications for the FSx filesystem."
+  default     = false
+}
