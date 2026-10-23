@@ -59,6 +59,10 @@ data "aws_ec2_managed_prefix_list" "administration_cidr_ranges" {
   name = "administration-cidr-ranges"
 }
 
+data "aws_ec2_managed_prefix_list" "shared_services_management_cidrs" {
+  name = "shared-services-management-cidrs"
+}
+
 data "vault_kv_secret_v2" "nfs_fsx_credentials" {
   mount = "team-unix-storage"
   name  = "${var.aws_account}/amzfsx/chips-oltp-dg-g2-fsx/credentials"
@@ -76,10 +80,10 @@ data "vault_kv_secret_v2" "netapp_fsx_account_id" {
 
 data "vault_kv_secret_v2" "sns_email" {
   mount = "team-unix-storage"
-  name = "shared-secrets/sns"
+  name  = "shared-secrets/sns"
 }
 
 data "vault_kv_secret_v2" "sns_url" {
   mount = "team-unix-storage"
-  name = "shared-secrets/sns"
+  name  = "shared-secrets/sns"
 }
