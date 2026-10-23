@@ -18,7 +18,7 @@ resource "aws_vpc_security_group_ingress_rule" "fsx_ssh_https" {
 
 resource "aws_vpc_security_group_ingress_rule" "fsx_ci_https" {
   description       = "Allow HTTPS connectivity between Concourse and ${var.fsx_fs_name}"
-  security_group_id = aws_security_group.nfs_fsx.id
+  security_group_id = aws_security_group.chips_oltp_dg_g2_fsx.id
   ip_protocol       = "tcp"
   prefix_list_id    = data.aws_ec2_managed_prefix_list.shared_services_management_cidrs.id
   from_port         = 443
