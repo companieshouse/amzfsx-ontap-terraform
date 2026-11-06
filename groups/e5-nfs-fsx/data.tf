@@ -63,14 +63,17 @@ data "aws_ec2_managed_prefix_list" "shared_services_management_cidrs" {
   name = "shared-services-management-cidrs"
 }
 
-data "vault_generic_secret" "fsx_admin_password" {
-  path = "applications/${var.aws_account}-${var.aws_region}/amzfsx/e5-nfs-fsx"
+data "vault_kv_secret_v2" "e5_nfs_fsx_credentials" {
+  mount = "team-unix-storage"
+  name  = "${var.aws_account}-${var.aws_region}/amzfsx/e5-nfs-fsx/credentials"
 }
 
-data "vault_generic_secret" "netapp_account_id" {
-  path = "applications/shared-services-eu-west-2/netapp/account"
+data "vault_kv_secret_v2" "netapp_account_id" {
+  mount = "team-unix-storage"
+  name  = "shared-secrets/netapp/account"
 }
 
-data "vault_generic_secret" "netapp_fsx_account_id" {
-  path = "applications/shared-services-eu-west-2/netapp/fsx/"
+data "vault_kv_secret_v2" "netapp_fsx_account_id" {
+  mount = "team-unix-storage"
+  name  = "shared-secrets/netapp/fsx"
 }
