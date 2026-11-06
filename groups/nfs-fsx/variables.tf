@@ -105,3 +105,9 @@ variable "cifs_ports" {
     { "protocol" = "udp", "port" = 137 }
   ]
 }
+
+variable "iscsi_enabled" {
+  type        = bool
+  description = "Boolean to enable/disable ISCSI client access"
+  default     = false
+}
