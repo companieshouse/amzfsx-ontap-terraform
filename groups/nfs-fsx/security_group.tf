@@ -135,6 +135,17 @@ resource "aws_vpc_security_group_ingress_rule" "fsx_iscsi" {
   to_port           = 3260
 }
 
+resource "aws_vpc_security_group_ingress_rule" "fsx_iscsi_app" {
+  count = var.iscsi_enabled ? length(data.aws_subnets.application_subnets.ids) : 0
+
+  description       = "Allow ISCSI connectivity for ${var.fsx_fs_name}"
+  security_group_id = aws_security_group.nfs_fsx.id
+  ip_protocol       = "tcp"
+  cidr_ipv4         = values(data.aws_subnet.application_subnet)[count.index].cidr_block
+  from_port         = 3260
+  to_port           = 3260
+}
+
 ### Egress Rules
 
 resource "aws_vpc_security_group_egress_rule" "fsx_all_out" {
